@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../css/OrderDetails.css">
+    <link rel="stylesheet" href="../lib/layui-1.0.9/build/css/layui.css">
+</head>
+<body>
+<div id="D_body">
+    <!--订单信息-->
+    <div>
+        <div class="D_title fs20">订单信息</div>
+        <div class="D_detail">
+            <div class="D_content">
+                <div class="D_content_one">
+                    <div>
+                        <span>订单号:</span><span class="orderlist1"></span>
+                    </div>
+                    <div>
+                        <span>下单方式:</span><span class="orderlist2"></span>
+                    </div>
+                    <div>
+                        <span>价格类型:</span><span class="orderlist3"></span>
+                    </div>
+                    <div>
+                        <span>支付状态:</span><span class="orderlist4"></span>
+                    </div>
+                </div>
+                <div class="D_content_two">
+                    <div>
+                        <span>订单号状态:</span><span class="orderlist5"></span>
+                    </div>
+                    <div>
+                        <span>下单时间:</span><span class="orderlist6"></span>
+                    </div>
+                    <div>
+                        <span>订单价格:</span><span class="orderlist7"></span>
+                    </div>
+                    <div>
+                        <span>支付方式:</span><span class="orderlist8"></span>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="D_detail D_border">
+            <div class="D_content">
+                <div class="D_content_one">
+                    <div>
+                        <span>下单账号:</span><span class="orderlist11"></span>
+                    </div>
+                    <div>
+                        <span>服务分类:</span><span class="orderlist22"></span>
+                    </div>
+                    <div>
+                        <span>服务价格:</span><span class="orderlist33"></span>
+                    </div>
+                    <div>
+                        <span>服务备注:</span><span class="orderlist44"></span>
+                    </div>
+                </div>
+                <div class="D_content_two">
+                    <div>
+                        <span>价格类型:</span><span class="orderlist66"></span>
+                    </div>
+                    <div>
+                        <span>服务内容:</span><span class="orderlist77"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--用户地址-->
+    <div style=" padding-top: 40px;">
+        <div class="D_add D_of auto border">
+            <div class="D_content_one fs20 fw color">用户地址</div>
+            <div class="D_content_two">
+                <button class=" D_none" id="oneBtn">编辑</button>
+            </div>
+        </div>
+        <div class="D_detail D_border">
+            <div class="D_content D_of">
+                <div class="D_content_one">
+                    <div>
+                        <span>联系人:</span><span class="D_name1 D_name"></span>
+                    </div>
+                    <div>
+                        <p class="D_line D_span">服务地址:</p><p class="D_span  D_w D_line">
+                        <span class="D_name2"></span><span class="D_name2-1 D_name"></span>
+                    </p>
+                    </div>
+                    <div>
+                        <span>服务时间:</span><span class="D_name D_name3"></span>
+                    </div>
+                    <div>
+                        <span class="D_line">备注:</span><span class="D_name D_name4 D_w D_line ww"></span>
+                    </div>
+                </div>
+                <div class="D_content_two">
+                    <div>
+                        <span>联系电话:</span><span class="D_name D_name5"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--渠道信息-->
+    <!--<div id="D_Qd" style=" padding-top: 40px;" class="D_none">-->
+    <!--<div class="D_add D_of auto border">-->
+    <!--<div class="D_content_one fs20 fw color">渠道信息</div>-->
+    <!--</div>-->
+    <!--<div class="D_detail D_border">-->
+    <!--<div class="D_content">-->
+    <!--<div class="D_content_one">-->
+    <!--<div>-->
+    <!--<span>渠道来源:</span><span class="D_qudao">在线下单&#45;&#45;广东电信</span>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<div class="D_content_two">-->
+    <!--<div>-->
+    <!--<span>是否促销:</span><span class="D_qudao">是</span>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--商家人员-->
+    <div style=" padding-top: 40px;">
+        <div class="D_add D_of auto border">
+            <div class="D_content_one fs20 fw color">商家人员</div>
+        </div>
+        <div class="D_detail D_border">
+            <div class="D_content">
+                <div class="D_content_one">
+                    <div>
+                        <span>商家名称:</span><span class="D_People1"></span>
+                    </div>
+                </div>
+                <div class="D_content_two">
+                    <div>
+                        <span>商家联系人:</span><span class="D_People2"> </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--服务信息-->
+    <div id="D_FwOne" style=" padding-top: 40px;">
+        <div class="D_add D_of auto border">
+            <div class="D_content_one fs20 fw color">服务信息</div>
+        </div>
+        <div class="D_detail D_border" id="D_fw">
+            <table id="D_addChild" class="layui-table">
+                <colgroup>
+                    <!--<col width="150">-->
+                    <!--<col width="200">-->
+                    <!--<col>-->
+                </colgroup>
+                <thead>
+                <tr>
+                    <th id="D_3">服务名称</th>
+                    <th id="D_4">分类</th>
+                    <th id="D_5">价格类型</th>
+                    <th id="D_6">单价</th>
+                    <th id="D_7">数量</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="D_of D_add auto">
+            <div class=" D_content_one D_imgW">
+                <!--<img id="D_img" class="D_img D_top" src="" alt="">-->
+            </div>
+            <div class="D_content_two fw">
+                <span>服务总价:</span><span class="D_sum"></span>
+            </div>
+
+        </div>
+    </div>
+    <!--服务信息 带操作-->
+    <div id="D_FwTwo" style=" padding-top: 40px;" class="D_none">
+        <div class="D_add D_of auto border">
+            <div class="D_content_one fs20 fw color">服务信息</div>
+        </div>
+        <div class="D_detail D_border" id="D_fwCao">
+            <table id="D_addChildCao" class="layui-table">
+                <colgroup>
+                    <!--<col width="150">-->
+                    <!--<col width="200">-->
+                    <!--<col>-->
+                </colgroup>
+                <thead>
+                <tr>
+                    <th id="D_3c">服务名称</th>
+                    <th id="D_4c">分类</th>
+                    <th id="D_5c">价格类型</th>
+                    <th id="D_6c">单价</th>
+                    <th id="D_7c">数量</th>
+                    <th id="D_8c">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="D_of D_add auto">
+            <div id="D_tup" class=" D_content_one D_imgW">
+                <!--<img class="D_img D_top" src="" alt="">-->
+            </div>
+            <div class="D_content_two fw">
+                <span>服务总价:</span><span class="D_sum"></span>
+            </div>
+
+        </div>
+    </div>
+    <!--//补差价服务-->
+    <div id="D_Bcj" style=" padding-top: 40px;" class="D_none">
+        <div class="D_add D_of auto border">
+            <div class="D_content_one fs20 fw color">补价服务</div>
+        </div>
+        <div class="D_detail D_border" id="D_fw1">
+            <table id="D_Bchajia" class="layui-table">
+                <colgroup>
+                    <!--<col width="150">-->
+                    <!--<col width="200">-->
+                    <!--<col>-->
+                </colgroup>
+                <thead>
+                <tr>
+                    <th id="D_31">服务名称</th>
+                    <th id="D_41">类型</th>
+                    <th id="D_51">价格</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="D_of D_add auto">
+            <div class="D_content_two fw">
+                <span>服务总价:</span><span id="D_bcjSum"></span>
+            </div>
+        </div>
+    </div>
+    <!--财务信息-->
+    <div style=" padding-top: 40px;">
+        <div class="D_add D_of auto border">
+            <div class="D_content_one fs20 fw color">财务信息</div>
+        </div>
+        <div class="D_detail D_border">
+            <table class="layui-table" lay-skin="nob">
+                <colgroup>
+
+                </colgroup>
+                <tbody>
+                <tr>
+                    <td><span>服务金额:</span><span>￥</span><span class="D_caiwu1"></span></td>
+                    <td><span>优惠券:</span><span>￥</span><span class="D_caiwu2"></span></td>
+                    <td><span>应付价格:</span><span>￥</span><span class="D_caiwu3"></span></td>
+                </tr>
+                <tr>
+                    <td><span>平台抽成:</span><span>￥</span><span class="D_caiwu4"></span></td>
+                    <td><span>商家结算:</span><span>￥</span><span class="D_caiwu5"></span></td>
+                    <td><span>渠道运营商:</span><span>￥</span><span class="D_caiwu6"></span></td>
+                </tr>
+                <tr>
+                    <td><span>订金金额:</span><span>￥</span><span class="D_caiwu7"></span></td>
+                    <td><span>补差价:</span><span>￥</span><span class="D_caiwu8"></span></td>
+                    <td><span>实付金额:</span><span>￥</span><span class="D_caiwu9"></span></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--订单备注-->
+    <div style=" padding-top: 40px;">
+        <div class="D_add D_of auto border color">
+            <div class="D_content_one fs20 fw">订单备注</div>
+            <div class="D_content_two ">
+                <button id="twoBtn" class="D_none">编辑</button>
+            </div>
+        </div>
+        <div id="D_bzContent" class="D_detail D_border">
+
+        </div>
+    </div>
+    <!--操作记录-->
+    <div class="D_detail D_border">
+        <div class="D_add D_of auto border">
+            <div class="D_content_one fs20 fw color">操作记录</div>
+        </div>
+        <div class="D_detail D_border" id="D_cc">
+            <table id="D_caozuo" class="layui-table">
+                <colgroup>
+
+                </colgroup>
+                <thead>
+                <tr>
+                    <th id="D_center">操作</th>
+                    <th id="D_center1">操作人</th>
+                    <th id="D_center2">操作时间</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--按钮-->
+    <!--如果异常订单是备注拒绝的话就没有下方按钮-->
+    <div class="D_detail D_border D_bottom">
+        <button id="cancelBtn" class="newEngineer">取消订单</button>
+        <button id="suerBtn" class="newEngineer">确认订单</button>
+        <button id="newEngineer" class="newEngineer D_none">重新分配工程师</button>
+
+    </div>
+    <!--弹框修改信息-->
+    <div id="D_none" class="D_address D_back D_none">
+        <div class="D_cet1">
+            <div class="D_bj">
+                <span class="D_content_one">修改用户地址</span>
+                <i id="I_con" class="layui-icon D_content_two">&#x1006;</i>
+            </div>
+            <form class="layui-form D_detail D_border " action="" id="D_from">
+                <div class="layui-form-item D_beizu">
+                    <label class="layui-form-label" style="width: 112px">联系人</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" required lay-verify="required" placeholder="请输入联系人"
+                               autocomplete="off"
+                               class="layui-input nameInput" style=" width: 50%"/>
+                        <span class="D_tishi D_tishi1 D_none">联系人不能为空</span>
+                    </div>
+                </div>
+                <div class="layui-form-item D_beizu">
+                    <label class="layui-form-label" style="width: 112px">联系电话</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" required lay-verify="required" placeholder="请输入联系电话"
+                               autocomplete="off"
+                               class="layui-input nameInput" style=" width: 50%">
+                        <span class="D_tishi D_tishi2 D_none">联系电话不能为空</span>
+                    </div>
+                </div>
+                <div class="layui-form-item D_beizu">
+                    <label class="layui-form-label" style="width: 112px">服务地址</label>
+                    <div class="layui-input-block">
+                        <div class="D_province" style=" line-height: 39px; word-wrap:break-word; word-break:break-all"></div>
+                    </div>
+                </div>
+                <div class="layui-form-item D_beizu">
+                    <label class="layui-form-label" style="width: 112px">地址详情</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" required lay-verify="required" placeholder="请输入详细地址"
+                               autocomplete="off"
+                               class="layui-input nameInput" style=" width: 50%">
+                        <span class="D_tishi D_tishi3 D_none">地址不能为空</span>
+                    </div>
+                </div>
+                <div class="layui-form D_beizu">
+                    <div class="layui-form-item">
+                        <div class="layui-inline">
+                            <label class="layui-form-label D_label" style="width: 112px">日期时间选择器</label>
+                            <div class="layui-input-inline">
+                                <input type="text" class="layui-input nameInput" id="test5" placeholder="请输入日期">
+                                <span class="D_tishi D_shijian D_tishi4 D_none">时间不能为空</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label" style="width: 112px">备注</label>
+                    <div class="layui-input-block">
+                        <textarea style=" width: 50%" name="desc" placeholder="请输入内容"
+                                  class="nameInput layui-textarea "></textarea>
+                        <span class="D_tishi D_tishi5 D_none">备注不能为空</span>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block" style="margin-left: 139px">
+                        <button id="D_tjbtn" type="submit" value="Submit" class="layui-btn" lay-submit
+                                lay-filter="formDemo">立即提交
+                        </button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--修改备注-->
+    <div id="D_none1" class="D_address D_back D_none D_Bei">
+        <div class="D_cet1">
+            <div class="D_bj">
+                <span class="D_content_one">修改订单备注</span>
+                <i id="I_con1" class="layui-icon D_content_two">&#x1006;</i>
+            </div>
+            <form class="layui-form D_detail D_border " action="">
+                <div class="layui-form-item layui-form-text">
+                    <label class="layui-form-label" style="width: 112px">订单备注</label>
+                    <div class="layui-input-block">
+                        <textarea style=" width: 50%" name="desc" placeholder="请输入内容"
+                                  class="bjInput layui-textarea"></textarea>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block" style="margin-left: 139px">
+                        <button id="D_tjbtn1" type="submit" value="Submit" class="layui-btn" lay-submit
+                                lay-filter="formDemo">立即提交
+                        </button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--分配工程师-->
+    <div id="Engineer" class="D_post D_back D_Eng D_none">
+        <div class="D_cet" id="D_choose">
+            <div class="D_bj">
+                <span class="D_content_one">选择工程师</span>
+                <i id="I_Engineer" class="layui-icon D_content_two">&#x1006;</i>
+            </div>
+            <table id="D_Fpgcs" class="layui-table ">
+                <colgroup>
+
+                </colgroup>
+                <thead>
+                <tr>
+                    <th id="X_1">选择</th>
+                    <th id="X_2">工程师账号</th>
+                    <th id="X_3">工程师名字</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+            <div class="layui-form-item">
+                <div class="layui-input-block" style=" width:160px;margin: auto">
+                    <button id="D_EntCancle"_ class="layui-btn layui-btn-primary">取消</button>
+                    <button id="EngineerBtn" type="submit" value="Submit" class="layui-btn" lay-submit
+                            lay-filter="formDemo">确认
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--服务信息 带操作弹框-->
+    <div id="D_Cz" class=" D_post D_back D_none">
+        <div class="D_bj D_bjOne">
+            <span class="D_content_one">选择服务信息</span>
+            <i id="D_EngineerCz" class="layui-icon D_content_two">&#x1006;</i>
+        </div>
+        <div class="D_cet D_cetOne" id="D_chooseCz">
+            <table id="D_FpgcsCz" class="layui-table ">
+                <colgroup>
+                    <col width="10%">
+                    <col width="23%">
+                    <col width="22%">
+                    <col width="20%">
+                    <col width="12%">
+                    <col width="13%">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th id="X_1c">选择</th>
+                    <th id="X_2c">服务名称</th>
+                    <th id="X_3c">分类</th>
+                    <th id="X_4c">价格类型</th>
+                    <th id="X_5c">单价</th>
+                    <th id="X_6c">数量(定金类型不可修改)</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+        </div>
+        <div id="D_qD" class="layui-form-item">
+            <div class="layui-input-block" style=" width:160px;margin: auto">
+                <button id="D_XCanle" class="layui-btn layui-btn-primary">取消</button>
+                <button id="CzBtn" type="submit" value="Submit" class="layui-btn" lay-submit
+                        lay-filter="formDemo">确认
+                </button>
+            </div>
+        </div>
+    </div>
+    <!--确认完成服务弹框-->
+    <div id="over" class=" D_post D_back  D_none D_Over D_Eng">
+        <div class="D_cet D_cetWidth ">
+            <div class="D_bj">
+                <span class="D_content_one">确认完成服务</span>
+                <i id="O_Engineer" class="layui-icon D_content_two">&#x1006;</i>
+            </div>
+            <div class="D_FwTable">
+                <table id="D_addTable" class="layui-table">
+                    <colgroup>
+                        <col width="25%">
+                        <col width="25%">
+                        <col width="25%">
+                        <col width="25%">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th id="D_18">是否是配件 <span>(默认为配件)</span></th>
+                        <th id="D_28">服务名称</th>
+                        <th id="D_38">服务价格</th>
+                        <th id="D_48">操作</th>
+                    </tr>
+                    </thead>
+                    <tbody id="D_tBody">
+
+                    </tbody>
+                </table>
+                <button id="D_FwBtn" class="D_FwBtn">添加</button>
+                <div class="D_Fwcj">
+                    <!--<div>-->
+                    <!--<span>补差价金额:</span>-->
+                    <!--<span>123.00元</span>-->
+                    <!--</div>-->
+                    <!--<div>-->
+                    <!--<span>待订金:</span>-->
+                    <!--<span>123.00元</span>-->
+                    <!--<span>(已支付)</span>-->
+                    <!--</div>-->
+                    <!--<div>-->
+                    <!--<span>待支付总价:</span>-->
+                    <!--<span>123.00元</span>-->
+                    <!--</div>-->
+                </div>
+                <div class="D_FwzfBtn">
+                    <button id="D_FwBtnCancle" class="D_FwBtn">取消</button>
+                    <button id="D_child" class="D_FwBtn D_child">确定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 评价弹窗 -->
+    <div id="D_Win" class="D_fixed D_f D_none">
+        <div id="visit" class="w_h_500">
+            <div class="m_t6 m_l_24">
+                <div class="text_r">
+                    <i class="layui-icon layui-icon-close" style="font-size:25px;font-weight: 600"
+                       id="close">&#x1006;</i>
+                </div>
+                <!-- 星星 -->
+                <!--<div class="eval-star">-->
+                <!--<span class="eval-star_o l_h_30">评分 :</span>-->
+                <!--<input type="hidden" name="star">-->
+                <!--</div>-->
+                <div class="m_t20 m_b20">
+                    <!--<div class="m_t20 m_b20">-->
+                    <!--<div class="eval-star_o m_b20">服务人员是否按时上门？</div>-->
+                    <!--<input type="radio" name="radio" value="按时上门" class="v_a"/>-->
+                    <!--<span class="D_span">按时上门</span>-->
+                    <!--<input type="radio" name="radio" value="没有按时上门" class="v_a m_l_24"/>-->
+                    <!--<span class="D_span">没有按时上门</span>-->
+                    <!--</div>-->
+                    <!--<div class="m_t20 m_b20">-->
+                    <!--<div class="eval-star_o m_b20">请问本次服务合计收费-->
+                    <!--<span>112</span>元吗？-->
+                    <!--</div>-->
+                    <!--<input type="radio" name="radio1" value="金额一致" class="v_a"/>-->
+                    <!--<span class="D_span">金额一致</span>-->
+                    <!--<input type="radio" name="radio1" value="金额不一致" class="v_a m_l_24"/>-->
+                    <!--<span class="D_span">金额不一致</span>-->
+                    <!--<input type="text" placeholder="填写用户实报金额" class=" in_put w_90 m_l5r5 T-a" value="">-->
+                    <!--</div>-->
+                    <!--<div class="m_t20 m_b20">-->
+                    <!--<div class="eval-star_o m_b20">对本次服务是否满意？</div>-->
+                    <!--<input type="radio" name="radio" value="满意" class="v_a"/>-->
+                    <!--<span class="D_span">满意</span>-->
+                    <!--<input type="radio" name="radio" value="不满意" class="v_a m_l_24"/>-->
+                    <!--<span class="D_span">不满意</span>-->
+                    <!--</div>-->
+                    <textarea id="D_textaer" name="desc" placeholder="请填写用户的不满意内容" class="w_290 h_60 p_l_3"></textarea>
+                    <p id="D_feedback" class="sbmit">提交</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../lib/jquery-1.9.1.min.js"></script>
+<script src="../lib/layui-1.0.9/build/layui.js"></script>
+<script src="../lib/jquery.raty.min.js"></script>
+<script src="../utils/util.js"></script>
+<script src="../utils/service.js"></script>
+<script src="../js/OrderDetails.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+html{
+    height: 100%;
+}
+body{
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    font-family: "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+}
+ul,ol,li{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+.p_a{
+    position: absolute;
+}
+.p_r{
+    position: relative;
+}
+.hei_100{
+    height: 100%;
+}
+.wid_100{
+    width: 100%;
+}
+.d_i{
+    display: inline-block;
+}
+.color_white{
+    color: white;
+}
+.clear::after{
+    content: '';
+    display: block;
+    clear: both;
+}
+.f_l{
+    float: left;
+}
+.f_r{
+    float: right;
+}
+.cur{
+    cursor: pointer;
+}
+.t_a{
+    text-align: center;
+}
+.t_r{
+    text-align: right;
+}
+.d_n{
+    display: none;
+}
+.green_title{
+    color: #11817e;
+    line-height: 30px;
+    border-bottom: 2px solid #11817e;
+}
+.green_title>span{
+    width: 95px;
+}
+.fs20{
+    font-size: 20px;
+}
+.fs18{
+    font-size: 18px;
+}
+.mb20{
+    margin-bottom: 20px;
+}
+.o_h{
+    overflow: hidden;
+}
+.v_t{
+    vertical-align: top;
+}

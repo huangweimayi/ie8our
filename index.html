@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>114家</title>
+  <link rel="stylesheet" href="lib/layui-1.0.9/build/css/layui.css">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div class="p_a hei_100 left_menu">
+  <div class="logo t_a color_white">
+    <img src="image/logo.png" alt="">
+    <span>114家管理系统</span>
+  </div>
+  <ul class="out_menu color_white">
+    <li class="cur active" id="order">
+      <span>订单管理</span>
+      <ul class="sub_menu d_n">
+        <li class="cur" data-url="page/addOrder.html">新增订单</li>
+        <li class="cur" data-url="page/orderList.html">订单列表</li>
+        <li class="cur" data-url="page/exceptionOrder.html">异常订单</li>
+        <!--<li class="cur" data-url="page/OrderDetails.html">异常订单</li>-->
+      </ul>
+    </li>
+  </ul>
+
+</div>
+<div class="main_content hei_100">
+  <div class="top_header color_white clear">
+    <div class="user f_r">
+      <div class="f_l cur">
+        <div class="avater d_i o_h">
+          <img src="image/logo.png" alt="" class="wid_100 hei_100 v_t" id="avater">
+        </div>
+        <div class="d_i" id="name">--</div>
+      </div>
+      <!--<div class="f_l cur">修改密码</div>-->
+      <div class="f_l cur" id="logout">退出</div>
+    </div>
+    <div class="order f_r" id="top_order"></div>
+
+  </div>
+  <!--<iframe id="iframe" class="wid_100" src="page/OrderDetails.html" frameborder="0"></iframe>-->
+  <!--<iframe id="iframe" class="wid_100" src="page/addOrder.html" frameborder="0"></iframe>-->
+  <iframe id="iframe" class="wid_100" src="page/orderList.html" frameborder="0"></iframe>
+
+
+</div>
+
+
+
+</body>
+<script src="lib/jquery-1.9.1.min.js"></script>
+<script src="lib/layui-1.0.9/build/layui.js"></script>
+<script src="utils/util.js"></script>
+<script src="utils/service.js"></script>
+<script src="js/index.js"></script>
+</html>

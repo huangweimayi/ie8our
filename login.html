@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <title>114家管理系统</title>
+  <object classid=clsid:F1E4D0CA-9188-44A8-8272-B28ACD203C3A id=icdccc width=0 height=0 ></object>
+  <object classid=clsid:4A35C037-9252-4C50-801B-247BDF4C2AC5 id=icdevent width=0 height=0 ></object>
+  <object classid=clsid:5A66746D-C8D8-4ACD-8E44-A93DAE291670 id=icddm width=0 height=0 ></object>
+  <link rel="stylesheet" href="lib/layui-1.0.9/build/css/layui.css">
+</head>
+<body>
+<div style="text-align: center;padding-top: 20px">
+  <div class="layui-btn" id="login">登录</div>
+</div>
+
+</body>
+<script src="lib/jquery-1.9.1.min.js"></script>
+<script src="lib/layui-1.0.9/build/layui.js"></script>
+<script language="vbscript" src="lib/InterfaceService.vbs"></script>
+<script language="JavaScript" src="lib/interfaceService.js"></script>
+<script src="utils/util.js"></script>
+<script src="utils/service.js"></script>
+<script>
+  var events = {
+    init:function () {
+      this.domEvent()
+    },
+    domEvent:function () {
+       var workNo = call_getWorkNo();
+      $('#login').on('click',function () {
+        var data = {
+//          username:'t631'
+           username:workNo
+        };
+        _hw.login(data,function (res) {
+          var _data = res.data;
+          sessionStorage.setItem('token',_data.token);
+          sessionStorage.setItem('user',JSON.stringify(_data.user));
+          tipMsg('登录成功~');
+          setTimeout(function () {
+            window.location.href='index.html'
+          },1500)
+        },function (errMsg) {})
+      })
+    }
+  };
+  $(function(){
+    events.init();
+  });
+
+</script>
+</html>

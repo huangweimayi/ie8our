@@ -1,0 +1,417 @@
+.D_title{
+  padding:10px 0px ;
+    border-bottom:2px solid #11817e ;
+    font-size: 25px;
+    font-weight: 600;
+    width: 1000px;
+    margin: auto;
+    color: #11817e;
+}
+.D_content_one{
+    float:left;
+    /*width: 50%;*/
+}
+.D_content_two{
+    float:right;
+    /*width: 50%;*/
+}
+.fs20{
+   font-size: 20px;
+}
+.D_of{
+    overflow: hidden;
+}
+.fw{
+    font-weight: 600;
+}
+.D_fixed{
+    position: fixed;
+}
+.border{
+    /*color: #11817e;*/
+    border-bottom: 2px solid #11817e;
+}
+.color{
+    color: #11817e;
+}
+#D_center,#D_center1,#D_center2,#D_3,#D_4,#D_5,#D_6,#D_7,#D_31,#D_41,#D_51,#X_1,#X_2,#X_3,#D_18,#D_28,#D_38,#D_48,#D_181,#D_281,#D_381,#D_481,#D_581
+
+{
+    text-align: center;
+}
+#D_3c,#D_4c,#D_5c,#D_6c,#D_7c,#D_8c,#X_1c,#X_2c,#X_3c,#X_4c,#X_5c,#X_6c {
+    text-align: center;
+}
+.D_line{
+    display: inline-block;
+    vertical-align:top
+}
+.D_top{
+    vertical-align:top
+}
+.auto{
+    margin: auto;
+}
+#D_body{
+    margin-top: 40px;
+    margin-left: 40px;
+}
+.D_detail{
+    width: 1000px;
+    margin: auto;
+    border-bottom: 5px solid #11817e;
+    margin-top: 40px;
+}
+.D_add{
+    width: 1000px;
+    padding-bottom:10px ;
+}
+.D_border{
+    border: none;
+}
+.D_content{
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.D_content_one div,.D_content_two div{
+    padding: 10px;
+}
+.D_content_one div span:nth-child(2),.D_content_two div span:nth-child(2){
+    margin-left: 10px;
+}
+
+.D_w{
+    width: 400px;
+}
+.D_img{
+    width: 200px;
+    /*height: 200px;*/
+    margin-bottom: 5px;
+    /*background: #1E9FFF;*/
+}
+.D_imgW{
+    width: 815px;
+}
+#D_cc>.layui-table,#D_fw>.layui-table,#D_choose>.layui-table,#D_fwCao>.layui-table,#D_fw1>.layui-table{
+    text-align: center;
+    /*width: 100%;*/
+}
+.D_CBtn{
+    cursor:pointer
+}
+#oneBtn,#twoBtn{
+    /*display: inline-block;*/
+    height: 38px;
+    line-height: 38px;
+    padding: 0 18px;
+    background-color: #009688;
+    color: #fff;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 14px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    opacity: .9;
+    filter: alpha(opacity=90);
+}
+.D_bottom{
+    margin-bottom: 40px;
+}
+.D_label{
+    width: 112px;
+}
+.D_f{
+    width: 100%;
+    height: 100%;
+    background: rgba(43, 46, 55, 0.42);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#88000000,endColorstr=#88000000);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: table;
+    display: table-cell;
+    vertical-align: middle
+}
+.D_cet,.D_cet1{
+    width: 1000px;
+    background: white;
+    margin: auto;
+    /*margin-top: 10%;*/
+    padding-bottom: 20px;
+}
+.D_cetOne{
+    margin-top: 0px;
+}
+.D_cet1{
+    width: 616px;
+}
+.D_bj{
+    background-color: #009688;
+    padding: 10px 0px;
+    color: white;
+    overflow: hidden;
+    /*font-weight: bold;*/
+}
+.D_bj span,.D_bj i{
+     display: inline-block;
+ }
+.D_bj span{
+    font-size: 25px;
+    margin-left: 20px
+}
+.D_bj i{
+    margin-right: 20px;
+    font-size: 25px;
+    cursor: pointer;
+}
+.D_none{
+    display: none;
+    opacity: 0;
+}
+.D_ridio{
+    width: 15px;
+    height: 15px;
+}
+.newEngineer{
+    height: 38px;
+    line-height: 38px;
+    padding: 0 18px;
+    background-color: #009688;
+    color: #fff;
+    white-space: nowrap;
+    text-align: center;
+    font-size: 14px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    opacity: .9;
+    filter: alpha(opacity=90);
+    margin-left: 10px;
+    border: none;
+    outline: none;
+}
+.D_cetWidth{
+    width: 1000px;
+}
+.D_FwTable{
+    width: 100%;
+    text-align: center;
+}
+.D_FwBtn{
+    width: 120px;
+    height: 38px;
+    border-radius: 2px;
+    text-align: center;
+    line-height: 38px;
+    background: #009688;
+    color: white;
+    font-size: 16px;
+    border: none;
+    outline: none;
+    margin: auto;
+    cursor: pointer;
+}
+.D_Ipt{
+    width: 100%;
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0);
+    text-align: center;
+}
+.D_IconFw{
+    cursor: pointer;
+    font-weight: 600;
+}
+.D_FwCheck{
+    width: 15px;
+    height: 20px;
+    vertical-align:top
+}
+.D_Fwcj{
+    text-align: left;
+    margin-left: 20px;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+.D_Fwcj div {
+    margin-bottom: 10px;
+}
+.D_child{
+    margin-left: 20px;
+}
+#D_addTable,#D_Fpgcs,#D_addTable1{
+    width: 98%;
+    margin: 10px auto;
+}
+.w_h_500{
+    width: 336px;
+    height: 200px;
+    position: absolute;
+    top:50%;
+    margin-top:-205px;
+    left:50%;
+    margin-left: -168px;
+    z-index: 100;
+    background-color: white;
+    padding: 10px 15px;
+}
+.m_t6{
+    margin-top: 6px;
+}
+.m_l_24{
+    margin-left: 24px;
+}
+.text_r{
+    text-align: right;
+}
+.eval-star img {
+    width: 30px;
+    height:30px;
+    display: inline-block;
+    margin-left: 10px;
+}
+.eval-star_o{
+    color:#999999;
+}
+.l_h_30{
+    line-height: 30px;
+}
+.m_t20{
+    margin-top: 20px;
+}
+.m_b20{
+    margin-bottom: 20px;
+}
+.v_a{
+    vertical-align:top;
+    margin-top: 4px;
+
+}
+.in_put{
+    outline: none;
+    border:none;
+    border: 1px solid #797979;
+    font-size: 11px;
+}
+.w_90{
+    width: 90px;
+    /* height: 20px; */
+    padding:4px;
+}
+.m_l5r5{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.T-a{
+    text-align: center;
+}
+.w_290{
+    width: 290px;
+}
+.h_60{
+    height: 90px;
+}
+.p_l_3{
+    padding-left:3px;
+}
+.sbmit{
+    width: 130px;
+    height:38px;
+    line-height: 38px;
+    text-align: center;
+    background-color: #1AA194;
+    cursor:pointer;
+    margin: auto;
+    color:white;
+    margin-top: 10px;
+    border-radius: 2px;
+}
+.D_span{
+    margin-left: 5px;
+}
+.placeholder{
+    color: gray;
+}
+input::-ms-clear, input::-ms-reveal {
+    display: none;
+}
+#D_from>.layui-form-item{
+    margin-bottom: 21px;
+}
+.D_tishi{
+    color: red;
+    font-size: 11px;
+    margin-left: 36px;
+    position: absolute;
+}
+.D_shijian{
+    margin-left: 0px;
+}
+.ww{
+    word-wrap:break-word
+}
+select{
+    width: 40%;
+    height: 100%;
+    outline: none;
+    border: none;
+    background: rgba(43, 46, 55, 0);
+    text-align: center;
+}
+#D_chooseCz{
+    height: 450px;
+    overflow-y:auto;
+}
+#D_qD{
+    background: white;
+    padding: 20px 0px;
+    width: 1000px;
+    margin: auto;
+}
+.D_bjOne{
+    width: 1000px;
+    margin: auto;
+    /*margin-top: 10%;*/
+}
+#D_addTable{
+    text-align: center;
+}
+#D_fwCao{
+    margin-top: 20px;
+ }
+.D_post{
+    top: 100px;
+    width: 1000px;
+    left:50%;
+    margin-left: -500px;
+}
+.D_back{
+    position: absolute;
+    padding: 8px;
+    background: rgba(43, 46, 55, 0.42);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#88000000,endColorstr=#88000000);
+}
+.D_address{
+    top: 100px;
+    width: 616px;
+    left:50%;
+    margin-left: -308px;
+}
+.D_Bei{
+    top: 50%;
+    margin-top: -130px;
+}
+.D_Eng{
+    top: 20%;
+}
+.D_span{
+    display: inline-block;
+}
+#D_province{
+    line-height: 39px;
+    word-wrap:break-word;
+    word-break:break-all
+}

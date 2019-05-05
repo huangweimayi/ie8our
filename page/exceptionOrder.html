@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="../lib/layui-1.0.9/build/css/layui.css">
+  <link rel="stylesheet" href="../css/orderList.css">
+</head>
+<style>
+</style>
+
+<body>
+  <div class="overflow_h m_t20">
+    <div class="f_l">
+      <div class="overflow_h">
+        <div class="f_l">
+          <div class="layui-form-item">
+            <label class="layui-form-label">服务用户：</label>
+            <div class="layui-input-block">
+              <input type="text" name="userName" required lay-verify="required" placeholder="请输入用户联系号码" autocomplete="off" class="shop_input layui-input s_i_w">
+            </div>
+          </div>
+        </div>
+        <!-- <div class="f_l m_l_8">
+          <div class="layui-form-item f_l">
+            <label class="layui-form-label">坐席编号：</label>
+            <div class="layui-input-block">
+              <input type="text" name="number" required lay-verify="required" placeholder="请输入坐席编号" autocomplete="off" class="m_l_3 shop_input layui-input s_i_w1">
+            </div>
+          </div>
+        </div> -->
+        <div class="f_l m_l_142">
+          <button class="layui-btn" class="sbmit" style="height: 40px;line-height: 40px;width:100px;" id="sbmit">查询</button>
+        </div>
+      </div>
+      <div class="overflow_h m_b20 m_t20">
+        <div class="layui-inline">
+          <label class="layui-form-label">下单时间：</label>
+          <div class="layui-input-inline">
+            <input type="text" class="shop_input width_120 T-a" id="start" placeholder="---请选择---">
+          </div>
+        </div>
+        <div class="layui-inline">
+          <label class="w_auto f_l m_t_12">
+            <p class="line"></p>
+          </label>
+          <div class="layui-input-inline">
+            <input type="text" class="shop_input m_l5r5 width_120 T-a" id="end" placeholder="---请选择---">
+          </div>
+        </div>
+        <div class="layui-inline m_l34">
+          <label class="layui-form-label w_auto p_l_0 line_h_24">服务时间：</label>
+          <div class="layui-input-inline">
+            <input type="text" class="shop_input m_l5r5 width_120 T-a" id="start_ser" placeholder="---请选择---">
+          </div>
+        </div>
+        <div class="layui-inline">
+          <label class="w_auto f_l m_t_12">
+            <p class="line"></p>
+          </label>
+          <div class="layui-input-inline">
+            <input type="text" class="shop_input m_l5r5 width_120 T-a" id="end_ser" placeholder="---请选择---">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="f_l m_l_60 m_t_30">
+      <button class="layui-btn" class="sbmit" style="height: 40px;line-height: 40px;width:100px;" id="sbmit">查询</button>
+    </div> -->
+  </div>
+  <table class="layui-table">
+    </colgroup>
+    <thead>
+      <tr>
+          <th>订单号</th>
+          <th>服务产品</th>
+          <th>所属商家</th>
+          <th>服务分类</th>
+          <th>订单状态</th>
+          <th>服务地址</th>
+          <th>订单价格</th>
+          <th>备注</th>
+          <th>操作</th>
+        <!-- <th>用户账号</th>
+        <th>服务分类</th>
+        <th>服务内容</th>
+        <th>服务价格</th>
+        <th>下单类型</th>
+        <th>创建者</th>
+        <th>服务地址</th>
+        <th>用户备注</th>
+        <th>预约时间</th>
+        <th>提交时间</th>
+        <th>接单状态</th>
+        <th>取消原因</th>
+        <th>操作</th> -->
+      </tr>
+    </thead>
+    <tbody id="tbody">
+    </tbody>
+  </table>
+  <!-- 分页 -->
+  <div id="demo1"></div>
+</body>
+<script src="../lib/jquery-1.9.1.min.js"></script>
+<script src="../lib/layui-1.0.9/build/layui.js" charset="utf-8"></script>
+<script type="text/javascript" src="../lib/jquery.raty.min.js"></script>
+<script src="../utils/service.js"></script>
+<script src="../utils/util.js"></script>
+<script>
+  $(function () {
+    var page=1;
+    var userName = '';//服务用户
+      var shop_start = '';//下单时间开始
+      var shop_startSer ='';//服务时间开始
+      var shop_end = '';//下单时间结束
+      var shop_endSer = '';//服务时间结束
+    //初始化订单
+    var orderLists = function (page) {
+      $('#tbody').empty();
+      var list = '';
+      var dataList = {
+                    page: page||1,
+                    start_time: shop_start,
+                    end_time: shop_end,
+                    mobile:userName,
+                    server_start_time: shop_startSer,
+                    server_end_time: shop_endSer
+                }
+                // console.log(dataList)
+      orderList.confirm(dataList, function (res) {
+        for (var i = 0; i < res.data.list.length; i++) {
+          list += '<tr>' +
+            '<td>' + res.data.list[i].number + '</td>' +
+            '<td>' + res.data.list[i].service_name + '</td>' +
+            '<td>' + res.data.list[i].store_name + '</td>' +
+            '<td>' + res.data.list[i].service_category_name + '</td>' +
+            '<td>' + res.data.list[i].status_text + '</td>' +
+            '<td>' + res.data.list[i].full_address + '</td>' +
+            '<td>' + res.data.list[i].amount + '</td>' +
+            '<td>' + res.data.list[i].remark + '</td>' +
+            '<td id="td">' +
+            '<button class="layui-btn layui-btn-normal details" id=' + res.data.list[i].id + '>详情</button>' +
+            '</td>' +
+            '</tr>'
+        }
+        $('#tbody').append(list);
+        //点击详情
+        $('.details').on('click', (function (e) {
+          $(location).attr('href', 'OrderDetails.html?id=' + e.target.id)
+        }))
+        layui.use(['laypage', 'layer'], function(){
+              var laypage = layui.laypage
+              , layer = layui.layer;
+              laypage({
+                cont: 'demo1',
+                pages: res.data.totalPage || 0, //数据总数
+                curr: page||1,
+                jump: function(obj, first){
+                  if(!first){
+                    orderLists(obj.curr);
+                  }
+                }
+              });
+            });
+      })
+    }
+    orderLists(1);
+    //日期选择
+    layui.use('laydate', function () {
+      var laydate = layui.laydate;
+      var start = {
+        // min: laydate.now(),
+        istoday: false,
+        choose: function (datas) {
+          // end.min = datas; //开始日选好后，重置结束日的最小日期
+          // end.start = datas //将结束日的初始值设定为开始日
+        }
+      };
+      var end = {
+        // min: laydate.now(),
+        istoday: false,
+        choose: function (datas) {
+          // start.max = datas; //结束日选好后，重置开始日的最大日期
+        }
+      };
+      $('#start').click(function () {
+        start.elem = this;
+        laydate(start);
+      })
+      $('#end').click(function () {
+        end.elem = this
+        laydate(end);
+      })
+      $('#start_ser').click(function () {
+        start.elem = this;
+        laydate(start);
+      })
+      $('#end_ser').click(function () {
+        end.elem = this
+        laydate(end);
+      })
+    });
+    //点击查询
+    $('#sbmit').click(function () {
+      userName = $(" input[ name='userName' ] ").val();//服务用户
+      shop_start = $('#start').val();//下单时间开始
+      shop_startSer = $('#start_ser').val();//服务时间开始
+      shop_end = $('#end').val();//下单时间结束
+      shop_endSer = $('#end_ser').val();//服务时间结束
+            orderLists(1);
+    })
+    //设置input,textarea默认值
+    if (!('placeholder' in document.createElement('input'))) {
+      $('input[placeholder],textarea[placeholder]').each(function () {
+        var that = $(this),
+          text = that.attr('placeholder');            
+        if (that.val() === "") {
+          that.val(text).addClass('placeholder');
+        }
+        that.focus(function () {
+          if (that.val() === text) {
+            that.val("").removeClass('placeholder');
+          }
+        }).blur(function () {
+          if (that.val() === "") {
+            that.val(text).addClass('placeholder');
+          }
+        }).closest('form').submit(function () {
+          if (that.val() === text) {
+            that.val('');
+          }
+        });
+      });
+    }
+  })
+
+</script>
+
+</html>

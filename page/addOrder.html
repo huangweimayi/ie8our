@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>新增订单</title>
+  <object classid=clsid:F1E4D0CA-9188-44A8-8272-B28ACD203C3A id=icdccc width=0 height=0 ></object>
+  <object classid=clsid:4A35C037-9252-4C50-801B-247BDF4C2AC5 id=icdevent width=0 height=0 ></object>
+  <object classid=clsid:5A66746D-C8D8-4ACD-8E44-A93DAE291670 id=icddm width=0 height=0 ></object>
+  <link rel="stylesheet" href="../lib/layui-1.0.9/build/css/layui.css">
+  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../css/addOrder.css">
+</head>
+<body>
+<div class="content_add">
+  <form class="layui-form" id="addGoodsForm" action="">
+    <div class="green_title fs20 mb20">
+      <span class="t_r d_i">订单信息</span>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">*用户账号</label>
+      <div class="layui-input-inline">
+        <input type="text" name="user_mobile" id="user_mobile" lay-filter="user_mobile" required  lay-verify="required" placeholder="请输入用户账号" autocomplete="off" class="layui-input">
+        <!--<div class="layui-btn  layui-btn-primary" id="getNum">获取号码</div>-->
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">*服务分类</label>
+      <div class="layui-input-inline">
+        <select name="category1" id="category1" lay-filter="category1" required  lay-verify="required">
+          <option value=""></option>
+        </select>
+      </div>
+      <div class="layui-input-inline">
+        <select name="category2" id="category2" lay-filter="category2">
+          <option value=""></option>
+        </select>
+      </div>
+      <div class="layui-input-inline">
+        <select name="category3" id="category3" lay-filter="category3">
+          <option value=""></option>
+        </select>
+      </div>
+    </div>
+<!--    <div class="layui-form-item">
+      <label class="layui-form-label">服务内容</label>
+      <div class="layui-input-block">
+        <input type="text" name="service_keyword" id="service_keyword" placeholder="请输入服务内容" autocomplete="off" class="layui-input">
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">接受价格</label>
+      <div class="layui-input-inline">
+        <select name="price" lay-filter="price">
+          <option value=""></option>
+          <option value="0">0-30元</option>
+          <option value="1">30-50元</option>
+          <option value="2">50-100元</option>
+          <option value="3">100-150元</option>
+          <option value="4">150-300元</option>
+          <option value="5">300元以上</option>
+        </select>
+      </div>
+    </div>
+    &lt;!&ndash;<div class="layui-form-item">
+      <label class="layui-form-label">标签选择</label>
+      <div class="layui-input-block">
+        <input type="checkbox" name="like[write]" title="迟到必赔">
+        <input type="checkbox" name="like[read]" title="不满意退款" checked>
+        <input type="checkbox" name="like[dai]" title="精品">
+      </div>
+    </div>&ndash;&gt;
+    <div class="layui-form-item">
+      <label class="layui-form-label">类型</label>
+      <div class="layui-input-inline">
+        <select name="type" lay-filter="type" id="type">
+          <option value=""></option>
+        </select>
+      </div>
+    </div>-->
+    <div class="layui-form-item layui-form-text">
+      <label class="layui-form-label">用户备注</label>
+      <div class="layui-input-block">
+        <textarea name="user_remark" id="user_remark" placeholder="请输入内容" class="layui-textarea"></textarea>
+      </div>
+    </div>
+    <div class="green_title fs20 mb20">
+      <span class="t_r d_i">用户信息</span>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">服务地址</label>
+      <div class="layui-input-inline">
+        <select name="street_id" id="street_id" lay-filter="street_id">
+          <option value=""></option>
+        </select>
+      </div>
+      <!--<div class="layui-btn">编辑</div>-->
+      <div class="layui-btn" id="addAddr">新增地址</div>
+    </div>
+    <div id="isHasUser" style="display: none">
+      <div class="layui-form-item">
+        <label class="layui-form-label">联系人</label>
+        <div class="layui-input-inline">
+          <input type="text" name="contact_name" id="contact_name" placeholder="请输入联系人" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">联系电话</label>
+        <div class="layui-input-inline">
+          <input type="text" name="mobile" id="mobile" placeholder="请输入联系电话" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">服务城市</label>
+        <div class="layui-input-inline">
+          <select name="city1" id="city1" lay-filter="city1">
+            <option value=""></option>
+          </select>
+        </div>
+        <div class="layui-input-inline">
+          <select name="city2" id="city2" lay-filter="city2">
+            <option value=""></option>
+          </select>
+        </div>
+        <div class="layui-input-inline">
+          <select name="city3" id="city3" lay-filter="city3">
+            <option value=""></option>
+          </select>
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">详细地址</label>
+        <div class="layui-input-inline">
+          <input type="text" name="address" id="address" placeholder="请输入详细地址" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+      <!--<div class="layui-form-item">
+        <label class="layui-form-label">坐标小区</label>
+        <div class="layui-input-inline p_r">
+          <input type="text" name="title" required id="suggestId"  lay-verify="required" placeholder="请输入小区名" autocomplete="off" class="layui-input">
+          <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:100%;height:auto; display:none;position: absolute;top: 40px;"></div>
+        </div>
+        &lt;!&ndash;<button class="layui-btn">搜索</button>&ndash;&gt;
+      </div>-->
+      <!--<div class="layui-form-item">
+        <label class="layui-form-label"></label>
+        <div class="layui-input-inline">
+          <button class="layui-btn">确定信息</button>
+        </div>
+      </div>-->
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">*服务时间</label>
+      <div class="layui-input-inline">
+        <input id="begin_time" class="layui-input">
+      </div>
+      <div class="layui-form-mid layui-word-aux"> : </div>
+      <div class="layui-input-inline">
+        <select name="halfTime" id="halfTime" lay-filter="halfTime">
+          <option value=""></option>
+        </select>
+      </div>
+    </div>
+    <div class="layui-form-item" id="service_table">
+      <label class="layui-form-label"></label>
+      <div class="layui-input-block">
+        <table class="layui-table">
+          <thead>
+          <tr>
+            <th>服务项目</th>
+            <th>商品品类</th>
+            <th>服务数量</th>
+            <th>项目价格</th>
+            <th>选择规格</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td id="s_title">--</td>
+            <td id="s_cate">--</td>
+            <td>
+              <div class="layui-btn f_l layui-btn-primary" id="lessNum">-</div>
+              <div class="layui-input-inline" style="margin-right: 0">
+                <input class="layui-input" id="s_num">
+              </div>
+              <div class="layui-btn f_l layui-btn-primary" id="moreNum">+</div>
+            </td>
+            <td id="s_price">--</td>
+            <td>
+              <div class="layui-btn chooseService">手动选择</div>
+              <div class="layui-input-inline">
+                <select name="sku" id="sku" lay-filter="sku">
+                  <option value=""></option>
+                </select>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="green_title fs20 mb20">
+      <span class="t_r d_i">店铺信息</span>
+    </div>
+    <table class="layui-table" lay-even lay-skin="nob">
+      <tbody>
+      <tr>
+        <td>指派店铺：<span id="store_name">--</span></td>
+        <td></td>
+        <td></td>
+        <!--<td>商户名：<span>商户名</span></td>-->
+        <td></td>
+      </tr>
+      </tbody>
+    </table>
+    <!--<div class="green_title fs18 mb20">
+      <span class="t_r d_i">优惠券信息</span>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label" style="padding: 9px 9px 9px 0;width: 100px">优惠券编号：</label>
+      <div class="layui-input-inline">
+        <input type="text" required lay-verify="required" placeholder="请输入优惠券编号" autocomplete="off" class="layui-input">
+      </div>
+      <button class="layui-btn">使用优惠券</button>
+    </div>-->
+    <div class="green_title fs20 mb20">
+      <span class="t_r d_i">金额信息</span>
+    </div>
+    <table class="layui-table" lay-even lay-skin="nob" id="money_table">
+      <tbody>
+      <tr>
+        <td>服务金额: <span id="total_price">--</span></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <!--<td>1</td>
+        <td>优惠券</td>
+        <td>1</td>
+        <td>应付价格</td>
+        <td>1</td>-->
+      </tr>
+      <!--<tr>
+        <td>平台抽成</td>
+        <td>1</td>
+        <td>商家结算</td>
+        <td>1</td>
+        <td>渠道运营商</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>定金金额</td>
+        <td>1</td>
+        <td>补差价</td>
+        <td>1</td>
+        <td>实付金额</td>
+        <td>1</td>
+      </tr>-->
+
+      </tbody>
+    </table>
+    <div class="layui-form-item layui-form-text">
+      <label class="layui-form-label">订单备注</label>
+      <div class="layui-input-block">
+        <textarea name="remark" id="remark" placeholder="请输入内容" class="layui-textarea"></textarea>
+      </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label"></label>
+      <div class="layui-input-block">
+        <div class="layui-btn" lay-submit lay-filter="addInfo">立即提交</div>
+      </div>
+    </div>
+  </form>
+</div>
+<div id="l-map"></div>
+<div id="chooseLayer" style="display: none;">
+  <div class="c_l_out">
+    <table class="layui-table">
+      <thead>
+      <tr>
+        <th>选择</th>
+        <th>服务名称</th>
+        <th>市场价</th>
+        <th>所属店铺</th>
+        <!--<th>店铺综合评分</th>-->
+      </tr>
+      </thead>
+      <tbody id="serviceBody">
+
+      </tbody>
+    </table>
+    <div id="pages" class="t_a">
+      <div class="layui-btn" id="last">上一页</div>
+      <div class="layui-btn" id="next">下一页</div>
+      <div class="layui-btn  layui-btn-primary" id="cancel">取消</div>
+      <div class="layui-btn" id="sure">确定</div>
+    </div>
+
+  </div>
+</div>
+</body>
+<script src="../lib/jquery-1.9.1.min.js"></script>
+<script src="../lib/layui-1.0.9/build/layui.js"></script>
+<script language="vbscript" src="../lib/InterfaceService.vbs"></script>
+<script language="JavaScript" src="../lib/interfaceService.js"></script>
+<script src="https://api.map.baidu.com/api?v=2.0&ak=tNWXrXQyTcAtAWvhVUL4ORBmf5aQ4Rba&s=1"></script>
+<script src="../utils/util.js"></script>
+<script src="../utils/service.js"></script>
+<script src="../js/addOrder.js"></script>
+<!--15184421874-->
+<!--<script type="text/javascript">
+  // 百度地图API功能
+  function G(id) {
+    return document.getElementById(id);
+  }
+
+  var map = new BMap.Map("l-map");
+  map.centerAndZoom("北京",12);                   // 初始化地图,设置城市和地图级别。
+
+  var ac = new BMap.Autocomplete(    //建立一个自动完成的对象
+    {"input" : "suggestId"
+      ,"location" : map
+    });
+
+  ac.addEventListener("onhighlight", function(e) {  //鼠标放在下拉列表上的事件
+    var str = "";
+    var _value = e.fromitem.value;
+    var value = "";
+    if (e.fromitem.index > -1) {
+      value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+    }
+    str = "FromItem<br />index = " + e.fromitem.index + "<br />value = " + value;
+
+    value = "";
+    if (e.toitem.index > -1) {
+      _value = e.toitem.value;
+      value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+    }
+    str += "<br />ToItem<br />index = " + e.toitem.index + "<br />value = " + value;
+    G("searchResultPanel").innerHTML = str;
+  });
+
+  var myValue;
+  ac.addEventListener("onconfirm", function(e) {    //鼠标点击下拉列表后的事件
+    var _value = e.item.value;
+    myValue = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
+    G("searchResultPanel").innerHTML ="onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
+
+    setPlace();
+  });
+
+  function setPlace(){
+    map.clearOverlays();    //清除地图上所有覆盖物
+    function myFun(){
+      var pp = local.getResults().getPoi(0).point;    //获取第一个智能搜索的结果
+      map.centerAndZoom(pp, 18);
+      map.addOverlay(new BMap.Marker(pp));    //添加标注
+    }
+    var local = new BMap.LocalSearch(map, { //智能搜索
+      onSearchComplete: myFun
+    });
+    local.search(myValue);
+  }
+</script>-->
+</html>
