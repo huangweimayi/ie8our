@@ -26,11 +26,11 @@
       this.domEvent()
     },
     domEvent:function () {
-       var workNo = call_getWorkNo();
+//       var workNo = call_getWorkNo();
       $('#login').on('click',function () {
         var data = {
-//          username:'t631'
-           username:workNo
+          username:'t631'
+//           username:workNo
         };
         _hw.login(data,function (res) {
           var _data = res.data;
