@@ -31,6 +31,15 @@ var _duty = {
     },
 };*/
 var _hw = {
+  //获取用户信息
+  getCoupon: function (data, resolve, reject) {
+    _mm.request({
+      url: _mm.getServerUrl('/manage114/order/coupon?' + _mm.setUrlParam(data)),
+      method: 'GET',
+      success: resolve,
+      error: reject
+    });
+  },
   // 登录
   login: function (data, resolve, reject) {
     _mm.request({

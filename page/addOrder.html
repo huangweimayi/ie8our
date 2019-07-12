@@ -116,7 +116,7 @@
             <option value=""></option>
           </select>
         </div>
-        <div class="layui-input-inline">
+        <!--<div class="layui-input-inline">
           <select name="city2" id="city2" lay-filter="city2">
             <option value=""></option>
           </select>
@@ -125,28 +125,28 @@
           <select name="city3" id="city3" lay-filter="city3">
             <option value=""></option>
           </select>
-        </div>
+        </div>-->
       </div>
-      <div class="layui-form-item">
+      <!--<div class="layui-form-item">
         <label class="layui-form-label">详细地址</label>
         <div class="layui-input-inline">
           <input type="text" name="address" id="address" placeholder="请输入详细地址" autocomplete="off" class="layui-input">
         </div>
-      </div>
-      <!--<div class="layui-form-item">
+      </div>-->
+      <div class="layui-form-item">
         <label class="layui-form-label">坐标小区</label>
         <div class="layui-input-inline p_r">
-          <input type="text" name="title" required id="suggestId"  lay-verify="required" placeholder="请输入小区名" autocomplete="off" class="layui-input">
+          <input type="text" name="title" id="suggestId" placeholder="请输入小区名" autocomplete="off" class="layui-input">
           <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:100%;height:auto; display:none;position: absolute;top: 40px;"></div>
         </div>
-        &lt;!&ndash;<button class="layui-btn">搜索</button>&ndash;&gt;
-      </div>-->
-      <!--<div class="layui-form-item">
-        <label class="layui-form-label"></label>
+        <!--<button class="layui-btn">搜索</button>-->
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">门牌号</label>
         <div class="layui-input-inline">
-          <button class="layui-btn">确定信息</button>
+          <input type="text" name="address" id="address_detail" placeholder="请输入门牌号" autocomplete="off" class="layui-input">
         </div>
-      </div>-->
+      </div>
     </div>
     <div class="layui-form-item">
       <label class="layui-form-label">*服务时间</label>
@@ -212,16 +212,25 @@
       </tr>
       </tbody>
     </table>
-    <!--<div class="green_title fs18 mb20">
-      <span class="t_r d_i">优惠券信息</span>
-    </div>
-    <div class="layui-form-item">
-      <label class="layui-form-label" style="padding: 9px 9px 9px 0;width: 100px">优惠券编号：</label>
-      <div class="layui-input-inline">
-        <input type="text" required lay-verify="required" placeholder="请输入优惠券编号" autocomplete="off" class="layui-input">
+    <div id="coupon">
+      <div class="green_title fs18 mb20">
+        <span class="t_r d_i">优惠券信息</span>
       </div>
-      <button class="layui-btn">使用优惠券</button>
-    </div>-->
+      <div class="layui-form-item">
+        <label class="layui-form-label" style="padding: 9px 9px 9px 0;width: 100px">优惠券：</label>
+        <div class="layui-input-inline">
+          <select name="couponList" id="couponList" lay-filter="couponList">
+            <option value=""></option>
+          </select>
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label" style="padding: 9px 9px 9px 0;width: 100px">优惠码：</label>
+        <div class="layui-input-inline">
+          <input id="coupon_code" type="text" placeholder="请输入优惠码" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+    </div>
     <div class="green_title fs20 mb20">
       <span class="t_r d_i">金额信息</span>
     </div>
@@ -307,58 +316,7 @@
 <script src="../utils/service.js"></script>
 <script src="../js/addOrder.js"></script>
 <!--15184421874-->
-<!--<script type="text/javascript">
-  // 百度地图API功能
-  function G(id) {
-    return document.getElementById(id);
-  }
+<script type="text/javascript">
 
-  var map = new BMap.Map("l-map");
-  map.centerAndZoom("北京",12);                   // 初始化地图,设置城市和地图级别。
-
-  var ac = new BMap.Autocomplete(    //建立一个自动完成的对象
-    {"input" : "suggestId"
-      ,"location" : map
-    });
-
-  ac.addEventListener("onhighlight", function(e) {  //鼠标放在下拉列表上的事件
-    var str = "";
-    var _value = e.fromitem.value;
-    var value = "";
-    if (e.fromitem.index > -1) {
-      value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
-    }
-    str = "FromItem<br />index = " + e.fromitem.index + "<br />value = " + value;
-
-    value = "";
-    if (e.toitem.index > -1) {
-      _value = e.toitem.value;
-      value = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
-    }
-    str += "<br />ToItem<br />index = " + e.toitem.index + "<br />value = " + value;
-    G("searchResultPanel").innerHTML = str;
-  });
-
-  var myValue;
-  ac.addEventListener("onconfirm", function(e) {    //鼠标点击下拉列表后的事件
-    var _value = e.item.value;
-    myValue = _value.province +  _value.city +  _value.district +  _value.street +  _value.business;
-    G("searchResultPanel").innerHTML ="onconfirm<br />index = " + e.item.index + "<br />myValue = " + myValue;
-
-    setPlace();
-  });
-
-  function setPlace(){
-    map.clearOverlays();    //清除地图上所有覆盖物
-    function myFun(){
-      var pp = local.getResults().getPoi(0).point;    //获取第一个智能搜索的结果
-      map.centerAndZoom(pp, 18);
-      map.addOverlay(new BMap.Marker(pp));    //添加标注
-    }
-    var local = new BMap.LocalSearch(map, { //智能搜索
-      onSearchComplete: myFun
-    });
-    local.search(myValue);
-  }
-</script>-->
+</script>
 </html>
