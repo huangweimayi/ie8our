@@ -42,14 +42,15 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="f_l">
-        <div class="layui-form-item f_l">
-            <label class="layui-form-label">坐席编号：</label>
-            <div class="layui-input-block">
-                <input type="text" name="title" required lay-verify="required" placeholder="请输入坐席编号" autocomplete="off" class="shop_input layui-input">
+            <div class="f_l">
+                <div class="layui-form-item f_l">
+                    <label class="layui-form-label">下单账号：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="title" required lay-verify="required" placeholder="请输入下单账号"
+                               autocomplete="off" class="shop_input layui-input zhanghao">
+                    </div>
+                </div>
             </div>
-        </div>
-    </div> -->
 
             <div class="f_l m_l_32">
                 <div class="layui-form-item">
@@ -187,7 +188,7 @@
                 <span class="p-a a-text fs14">金额一致</span>
             </label>
             <label class="p-r a-lb">
-                <input name="feel1" class="feel1 feelAll" index="2" type="radio"  value="hate"/>
+                <input name="feel1" class="feel1 feelAll" index="2" type="radio" value="hate"/>
                 <span class="pos">
             <span class="radio_bg">
                 <span class="radio_on"></span>
@@ -195,7 +196,7 @@
         </span>
                 <span class="p-a a-text fs14">金额不一致</span>
             </label>
-            <input id="a-input"  class="a-input None" placeholder="请输入实付金额" onkeyup="clearNoNum(this)" type="text">
+            <input id="a-input" class="a-input None" placeholder="请输入实付金额" onkeyup="clearNoNum(this)" type="text">
         </div>
         <!--服务-->
         <div class="a-sm a-bRed mt40">
@@ -223,7 +224,7 @@
         </div>
         <div class="a-textarea m_t20 None">
             <div class="a-t-title">备注</div>
-            <textarea name="textarea" id="a-textarea"  rows="10"></textarea>
+            <textarea name="textarea" id="a-textarea" rows="10"></textarea>
         </div>
         <div class="a-btn m_t20">
             <div class="a-btnc a-btnL">保存</div>
@@ -251,20 +252,21 @@
         var shop_end = '';//下单时间结束
         var shop_endSer = '';//服务时间结束
         var select = '';//服务城市
+        var order_maker=''
         // var page = 1;
         var reVisitId = '';//点击回访得到id
         var _page = '';//dangqianyeshu
         var user_phone_num = '';//回访里面复制的用户电话号码
         // var scoreStar=''//评论星数
         //显示城市
-        var submitObj={
-            id:'',
-            rate:0,
-            is_on_time:1,
-            is_right_price:1,
-            is_satisfaction:1,
-            price:'',
-            remark:''
+        var submitObj = {
+            id: '',
+            rate: 0,
+            is_on_time: 1,
+            is_right_price: 1,
+            is_satisfaction: 1,
+            price: '',
+            remark: ''
         }
         var data_one = {};
         orderList.cityList(data_one, function (res) {
@@ -290,13 +292,14 @@
                 server_start_time: shop_startSer,
                 server_end_time: shop_endSer,
                 status: optionTab,
-                mobile: shop_user
+                mobile: shop_user,
+                order_maker:order_maker
             }
             orderList.order(dataList, function (res) {
                 var str = '';
                 for (var i = 0; i < res.data.list.length; i++) {
                     if (optionTab == 'cancel' || optionTab == 100) {
-                        str = '<button class="layui-btn layui-btn-normal reVisit" price='+res.data.list[i].pay_amount+' id=' + res.data.list[i].feedback + ',' + res.data.list[i].id + ',' + res.data.list[i].mobile + '>回访</button>';
+                        str = '<button class="layui-btn layui-btn-normal reVisit" price=' + res.data.list[i].pay_amount + ' id=' + res.data.list[i].feedback + ',' + res.data.list[i].id + ',' + res.data.list[i].mobile + '>回访</button>';
                     } else {
                         str = ''
                     }
@@ -323,9 +326,9 @@
                 $('.reVisit').on('click', (function (e) {
 
                     var _target = e.target.id.split(',');
-                   var price= $(this).attr('price')
-                    submitObj.id=_target[1]
-                    $('#a-price').text('本次服务合计收费¥'+price+'元吗?')
+                    var price = $(this).attr('price')
+                    submitObj.id = _target[1]
+                    $('#a-price').text('本次服务合计收费¥' + price + '元吗?')
                     reVisitId = _target[1];
                     user_phone_num = _target[2]
                     if (_target[2]) {
@@ -393,6 +396,7 @@
                 });
             })
         }
+
         orderLists(1);
         //点击选项
         $(".w_100").click(function (e) {
@@ -405,6 +409,7 @@
             shop_end = '';//下单时间结束
             shop_endSer = '';//服务时间结束
             select = '';//服务城市
+            order_maker=''
             $(" input[ name='shop_name' ] ").val('');
             $(" input[ name='shop_user' ] ").val('');
             $('#start').val('');
@@ -412,6 +417,7 @@
             $('#end').val('');
             $('#end_ser').val('');
             $("#select").val('');
+            $(".zhanghao").val('');
             // placeholder();
             orderLists(1);
             $('.w_100').css({
@@ -472,21 +478,23 @@
             shop_end = $('#end').val();//下单时间结束
             shop_endSer = $('#end_ser').val();//服务时间结束
             select = $("#select").val();//服务城市
+            order_maker=$(".zhanghao").val();
             orderLists(1);
         });
+
         //点击回访关闭
-        function close(){
+        function close() {
             $('#visit').css('display', 'none');
             $('#opsitio').css('display', 'none');
             $('.feelAll').each(function () {
-                if( $(this).attr('index')==1){
-                    $(this).prop('checked',true)
+                if ($(this).attr('index') == 1) {
+                    $(this).prop('checked', true)
                     $('.a-input').addClass('None')
                     $('.a-input').val('')
                     $('.a-textarea').addClass('None')
                     $('#a-textarea').val("")
-                }else {
-                    $(this).prop('checked',false)
+                } else {
+                    $(this).prop('checked', false)
                 }
             })
             $('#star').raty({
@@ -494,15 +502,16 @@
                 path: 'img',
                 width: 400
             });
-            submitObj={
-                rate:0,
-                is_on_time:1,
-                is_right_price:1,
-                is_satisfaction:1,
-                price:'',
-                remark:''
+            submitObj = {
+                rate: 0,
+                is_on_time: 1,
+                is_right_price: 1,
+                is_satisfaction: 1,
+                price: '',
+                remark: ''
             }
         }
+
         $('#close').click(function () {
             close()
         })
@@ -527,36 +536,35 @@
             }
         })
         $('#sbmit_out').on('click', function () {
-            var token=sessionStorage.getItem('token')
-            console.log(typeof (token))
-            window.location.href='http://devdaojiam.qingmh.com/manage114/order?export='+true+'&token='+token+'&status='+optionTab+'&store='+shop_name+'&mobile='+shop_user+'&start_time='+shop_start+'&end_time='+shop_end+'&city='+select+'&server_start_time='+shop_startSer+'&server_end_timer='+shop_endSer
+            var token = sessionStorage.getItem('token')
+            window.location.href = 'http://devdaojiam.qingmh.com/manage114/order?export=' + true + '&token=' + token +'&order_maker'+order_maker+ '&status=' + optionTab + '&store=' + shop_name + '&mobile=' + shop_user + '&start_time=' + shop_start + '&end_time=' + shop_end + '&city=' + select + '&server_start_time=' + shop_startSer + '&server_end_timer=' + shop_endSer
         })
 
-        $('.feel').on('change',function () {
-            if( $(this).attr('index')==2){
-                submitObj.is_on_time=0
-            }else {
-                submitObj.is_on_time=1
+        $('.feel').on('change', function () {
+            if ($(this).attr('index') == 2) {
+                submitObj.is_on_time = 0
+            } else {
+                submitObj.is_on_time = 1
             }
         })
-        $('.feel1').on('change',function () {
-            if( $(this).attr('index')==2){
-                submitObj.is_right_price=0
+        $('.feel1').on('change', function () {
+            if ($(this).attr('index') == 2) {
+                submitObj.is_right_price = 0
 
                 $('.a-input').removeClass('None')
-            }else {
-                submitObj.is_right_price=1
-                submitObj.price=''
+            } else {
+                submitObj.is_right_price = 1
+                submitObj.price = ''
                 $('.a-input').addClass('None')
                 $('.a-input').val('')
             }
         })
-        $('.feel2').on('change',function () {
-            if( $(this).attr('index')==2){
-                submitObj.is_satisfaction=0
+        $('.feel2').on('change', function () {
+            if ($(this).attr('index') == 2) {
+                submitObj.is_satisfaction = 0
                 $('.a-textarea').removeClass('None')
-            }else {
-                submitObj.is_satisfaction=1
+            } else {
+                submitObj.is_satisfaction = 1
                 $('.a-textarea').addClass('None')
                 $('#a-textarea').val("")
             }
@@ -567,18 +575,18 @@
             path: 'img',
             width: 400,
             click: function (score, evt) {
-                submitObj.rate=score
+                submitObj.rate = score
             }
         });
-        $('.a-btnR').on('click',function () {
+        $('.a-btnR').on('click', function () {
             close()
         })
         // 保存
-        $('.a-btnL').on('click',function () {
-            submitObj.price=$('.a-input').val()
-            submitObj.remark=$('#a-textarea').val()
-            orderList.feedback(submitObj,function (res) {
-                console.log(res)
+        $('.a-btnL').on('click', function () {
+            submitObj.price = $('.a-input').val()
+            submitObj.remark = $('#a-textarea').val()
+            orderList.feedback(submitObj, function (res) {
+
             })
         })
         //设置input,textarea默认值
@@ -608,6 +616,7 @@
         // };
         // placeholder();
     })
+
     //只能输入数字和小数点两位数
     function clearNoNum(obj) {
         obj.value = obj.value.replace(/[^\d.]/g, "");  //清除“数字”和“.”以外的字符
