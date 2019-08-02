@@ -123,6 +123,16 @@ var _hw = {
       error   : reject
     });
   },
+  // 关联账号
+  syncAddress : function(data,resolve,reject){
+    _mm.request({
+      url     : _mm.getServerUrl('/manage114/order/sync-address'),
+      method  : 'POST',
+      data: JSON.stringify(data),
+      success : resolve,
+      error   : reject
+    });
+  },
 
 };
 var orderList = {

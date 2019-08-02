@@ -55,7 +55,8 @@ layui.use(['form','layer','laydate'], function(){
         address:'',
         address_detail:'',
       },
-      userId:""
+      userId:"",
+      address_list:[],
 
     },
     domEvent:function () {
@@ -202,6 +203,7 @@ layui.use(['form','layer','laydate'], function(){
       }
       form.on('select(category1)', function(data){
         var val = data.value;
+        $('.categorySelects1').siblings('.categorySelects').hide();
         getcategory($('#category2'),1,val)
       });
       form.on('select(category2)', function(data){
@@ -378,14 +380,27 @@ layui.use(['form','layer','laydate'], function(){
         }else{
           layer.closeAll()
         }
-      })
+      });
 
       //手动选择的弹窗
       $('.chooseService').on('click',function (e) {
         e.stopPropagation();
         _top.ajaxDo.serviceOne();
-
       });
+
+       //关联账号
+      $('#relationAcc').on('click',function () {
+        $('#rOut').show()
+      });
+      //取消关联
+      $('#cancelRe').on('click',function () {
+        $('#rOut').hide();
+        $('#red_w').empty();
+      });
+      //确定关联
+      $('#sureRe').on('click',function () {
+        _top.ajaxDo.sccRe($('#sccRe').val());
+      })
     },
     ajaxDo:{
       // 百度地图API功能
@@ -460,6 +475,7 @@ layui.use(['form','layer','laydate'], function(){
         _hw.userInfo({mobile:mobile},function(res){
           var _data = res.data,
             addr = _data.address_list;
+          events.infor.address_list = addr;
           if(res.data.id){
             events.infor.userId = _data.id
             events.infor.addressArr = addr;
@@ -496,10 +512,13 @@ layui.use(['form','layer','laydate'], function(){
               events.infor.category3 = _data;
               break;
           }
-          $.each(_data,function (i, v) {
-            str += '<option value="'+v.id+'" data-pid="'+v.pid+'">'+v.show_name+'</option>'
-          });
-          dom.html(str);
+          if(_data.length>0){
+            $.each(_data,function (i, v) {
+              str += '<option value="'+v.id+'" data-pid="'+v.pid+'">'+v.show_name+'</option>'
+            });
+            dom.parents('.d_n').show();
+            dom.html(str);
+          }
           form.render('select');
         },function(errMsg){});
       },
@@ -674,6 +693,23 @@ layui.use(['form','layer','laydate'], function(){
           form.render();
         },function (err) {
           tipMsg(err.message)
+        })
+      },
+      //关联账号
+      sccRe:function (val) {
+        if(!val){
+          $('#red_w').html('请输入！');
+          return
+        }else{
+          $('#red_w').html('');
+        }
+        _hw.syncAddress({mobile_copy:$('#user_mobile').val(),mobile:val},function (res) {
+          // events.infor.address_list = events.infor.address_list.concat(res.data);
+          events.infor.address_list = res.data;
+          events.ajaxDo.addressSelect(events.infor.address_list);
+          $('#rOut').hide()
+        },function (err) {
+          $('#red_w').html(err.message)
         })
       }
     }

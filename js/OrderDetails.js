@@ -81,8 +81,6 @@ function select() {
 }
 // 绑定change事件选中当前的改变的值
 $("#D_FpgcsCz").on("change",'.D_xianzhi',function(){
-    // console.log('++++++++',busCode)
-    console.log('++++++++',$(this).attr('busCode'))
 
         if($(this).val()>=$(this).attr('busCode')){
             if($(this).parent().parent().children().eq(0).children().prop("checked")){
@@ -185,7 +183,6 @@ function serviceList(List) {
                 }
             }
         })
-
         // 执行复选框的方法
         select()
         // 限制输入框的为数字
@@ -377,6 +374,9 @@ $(function () {
                 '                    <td> ' + caozouarr[i].operator_text + '</td>\n' +
                 '                    <td>' + caozouarr[i].update_time + '</td>\n' +
                 '                </tr>'
+
+
+
             $('#D_caozuo').append(html)
         }
         //补差价服务
@@ -966,6 +966,5 @@ $('#close').bind('click', function () {
     $('#D_Win').addClass('D_none')
     // window.location.href = "./OrderDetails.html?id=cance";
 })
-
 
 

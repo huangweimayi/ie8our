@@ -4,3 +4,44 @@
 .c_l_out{
     padding: 10px;
 }
+.r_out{
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(12, 12, 12, 0.43);
+}
+.re_out{
+    width: 500px;
+    left: 50%;
+    position: absolute;
+    margin-left: -250px;
+    background-color: white;
+    border-radius: 10px;
+    top: 50px;
+    padding: 20px;
+}
+.re_out .t_l{
+    text-align: left;
+    font-size: 14px;
+}
+.re_out input{
+    outline: none;
+    border: 1px solid #cccccc;
+    border-radius: 3px;
+    width: 350px;
+    height: 35px;
+    margin-bottom: 10px;
+}
+.grey_re{
+    color: #cccccc;
+    font-size: 12px;
+    margin-bottom: 10px;
+}
+.red_w{
+    color: red;
+    font-size: 12px;
+    margin-bottom: 10px;
+}

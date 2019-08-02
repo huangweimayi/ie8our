@@ -9,178 +9,236 @@
 </head>
 <style>
 </style>
-
 <body>
-    <div class="m_t20 m_b20 shopmage overflow_h m_l_26">
-        <p class="w_100 f_l" id="10">待支付</p>
-        <p class="w_100 f_l" id="wait_store">待商家接单</p>
-        <!-- <p class="w_100 f_l" id="3">待商家指派</p> -->
-        <p class="w_100 f_l" id="wait_service">待服务</p>
-        <!-- <p class="w_100 f_l" id="5">服务中</p> -->
-        <!-- <p class="w_100 f_l" id="6">待补差价</p> -->
-        <!-- <p class="w_100 f_l" id="7">待回访</p> -->
-        <p class="w_100 f_l" id="100">订单完成</p>
-        <p class="w_100 f_l" id="cancel">订单取消</p>
-    </div>
-    <div class="overflow_h">
-        <div class="f_l">
-            <div class="overflow_h">
-                <div class="f_l">
-                    <div class="layui-form-item">
-                        <label class="layui-form-label">商家名称：</label>
-                        <div class="layui-input-block">
-                            <input type="text" name="shop_name" required lay-verify="required" placeholder="请输入商家名称" autocomplete="off" class="shop_input layui-input">
-                        </div>
-                    </div>
-                </div>
-                <div class="f_l m_l_32">
-                    <div class="layui-form-item f_l">
-                        <label class="layui-form-label">服务用户：</label>
-                        <div class="layui-input-block">
-                            <input type="text" name="shop_user" required lay-verify="required" placeholder="请输入用户联系号码" autocomplete="off" class="shop_input layui-input">
-                        </div>
-                    </div>
-                </div>
-                <!-- <div class="f_l">
-            <div class="layui-form-item f_l">
-                <label class="layui-form-label">坐席编号：</label>
-                <div class="layui-input-block">
-                    <input type="text" name="title" required lay-verify="required" placeholder="请输入坐席编号" autocomplete="off" class="shop_input layui-input">
-                </div>
-            </div>
-        </div> -->
-
-                <div class="f_l m_l_32">
-                    <div class="layui-form-item">
-                        <label class="layui-form-label">服务城市：</label>
-                        <div class="layui-input-block">
-                            <select name="city" id="select" lay-verify="required" class="shop_input" style="border:1px solid #E6E6E6;padding:10px;">
-                                <option value="">请选择城市</option>
-                            </select>
-                        </div>
+<div class="m_t20 m_b20 shopmage overflow_h m_l_26">
+    <p class="w_100 f_l" id="10">待支付</p>
+    <p class="w_100 f_l" id="wait_store">待商家接单</p>
+    <!-- <p class="w_100 f_l" id="3">待商家指派</p> -->
+    <p class="w_100 f_l" id="wait_service">待服务</p>
+    <!-- <p class="w_100 f_l" id="5">服务中</p> -->
+    <!-- <p class="w_100 f_l" id="6">待补差价</p> -->
+    <!-- <p class="w_100 f_l" id="7">待回访</p> -->
+    <p class="w_100 f_l" id="100">订单完成</p>
+    <p class="w_100 f_l" id="cancel">订单取消</p>
+</div>
+<div class="overflow_h">
+    <div class="f_l">
+        <div class="overflow_h">
+            <div class="f_l">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">商家名称：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="shop_name" required lay-verify="required" placeholder="请输入商家名称"
+                               autocomplete="off" class="shop_input layui-input">
                     </div>
                 </div>
             </div>
+            <div class="f_l m_l_32">
+                <div class="layui-form-item f_l">
+                    <label class="layui-form-label">服务用户：</label>
+                    <div class="layui-input-block">
+                        <input type="text" name="shop_user" required lay-verify="required" placeholder="请输入用户联系号码"
+                               autocomplete="off" class="shop_input layui-input">
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="f_l">
+        <div class="layui-form-item f_l">
+            <label class="layui-form-label">坐席编号：</label>
+            <div class="layui-input-block">
+                <input type="text" name="title" required lay-verify="required" placeholder="请输入坐席编号" autocomplete="off" class="shop_input layui-input">
+            </div>
+        </div>
+    </div> -->
+
+            <div class="f_l m_l_32">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">服务城市：</label>
+                    <div class="layui-input-block">
+                        <select name="city" id="select" lay-verify="required" class="shop_input"
+                                style="border:1px solid #E6E6E6;padding:10px;">
+                            <option value="">请选择城市</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
-            <div class="overflow_h m_b20 m_t20">
-                <div class="layui-inline">
-                    <label class="layui-form-label">下单时间：</label>
-                    <div class="layui-input-inline">
-                        <input type="text" class="shop_input width_120 T-a" id="start" placeholder="---请选择---">
-                    </div>
+        <div class="overflow_h m_b20 m_t20">
+            <div class="layui-inline">
+                <label class="layui-form-label">下单时间：</label>
+                <div class="layui-input-inline">
+                    <input type="text" class="shop_input width_120 T-a" id="start" placeholder="---请选择---">
                 </div>
-                <div class="layui-inline">
-                    <label class="w_auto f_l m_t_12">
-                        <p class="line"></p>
-                    </label>
-                    <div class="layui-input-inline">
-                        <input type="text" class="shop_input m_l5r5 width_120 T-a" id="end" placeholder="---请选择---">
-                    </div>
+            </div>
+            <div class="layui-inline">
+                <label class="w_auto f_l m_t_12">
+                    <p class="line"></p>
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" class="shop_input m_l5r5 width_120 T-a" id="end" placeholder="---请选择---">
                 </div>
-                <div class="layui-inline m_l34">
-                    <label class="layui-form-label w_auto p_l_0 line_h_24">服务时间：</label>
-                    <div class="layui-input-inline">
-                        <input type="text" class="shop_input m_l5r5 width_120 T-a" id="start_ser" placeholder="---请选择---">
-                    </div>
+            </div>
+            <div class="layui-inline m_l34">
+                <label class="layui-form-label w_auto p_l_0 line_h_24">服务时间：</label>
+                <div class="layui-input-inline">
+                    <input type="text" class="shop_input m_l5r5 width_120 T-a" id="start_ser" placeholder="---请选择---">
                 </div>
-                <div class="layui-inline">
-                    <label class="w_auto f_l m_t_12">
-                        <p class="line"></p>
-                    </label>
-                    <div class="layui-input-inline">
-                        <input type="text" class="shop_input m_l5r5 width_120 T-a" id="end_ser" placeholder="---请选择---">
-                    </div>
+            </div>
+            <div class="layui-inline">
+                <label class="w_auto f_l m_t_12">
+                    <p class="line"></p>
+                </label>
+                <div class="layui-input-inline">
+                    <input type="text" class="shop_input m_l5r5 width_120 T-a" id="end_ser" placeholder="---请选择---">
                 </div>
-
             </div>
 
         </div>
-        <div class="m_l_60 f_l m_l_32 m_t_30">
-            <button class="layui-btn" class="sbmit" style="height: 40px;line-height: 40px;width:100px;" id="sbmit_one">查询</button>
+
+    </div>
+    <div class="m_l_60 f_l m_l_32 m_t_30">
+        <button class="layui-btn" class="sbmit" style="height: 40px;line-height: 40px;width:100px;" id="sbmit_one">查询
+        </button>
+    </div>
+    <div class="m_l_60 f_l m_l_32 m_t_30">
+        <button class="layui-btn" class="sbmit" style="height: 40px;line-height: 40px;width:100px;" id="sbmit_out">导出
+        </button>
+    </div>
+</div>
+<table class="layui-table" id="myId">
+    <!-- <colgroup>
+<col width="150">
+<col width="200">
+<col> -->
+    </colgroup>
+    <thead>
+    <tr>
+        <th>订单号</th>
+        <th>服务产品</th>
+        <th>所属商家</th>
+        <th>服务分类</th>
+        <th>订单状态</th>
+        <th>下单账号</th>
+        <th>服务地址</th>
+        <th>订单价格</th>
+        <th>备注</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody id="tbody"></tbody>
+</table>
+<!-- 分页 -->
+<div id="demo1" class="T-a"></div>
+<!-- 遮罩层
+<div class="opsitio" style="display:none;" id="opsitio"></div> -->
+<!-- 评价弹窗 -->
+<div id="visit" class="w_h_500" style="display:none;">
+    <div class="a-title">
+        <div class="f_l">回访</div>
+        <div class="text_r" id="close">
+            <img src="../image/close.png" alt="" style="width:20px;height:20px;">
         </div>
     </div>
-    <table class="layui-table">
-        <!-- <colgroup>
-    <col width="150">
-    <col width="200">
-    <col> -->
-        </colgroup>
-        <thead>
-            <tr>
-                <th>订单号</th>
-                <th>服务产品</th>
-                <th>所属商家</th>
-                <th>服务分类</th>
-                <th>订单状态</th>
-                <th>服务地址</th>
-                <th>订单价格</th>
-                <th>备注</th>
-                <th>操作</th>
-            </tr>
-        </thead>
-        <tbody id="tbody"></tbody>
-    </table>
-    <!-- 分页 -->
-    <div id="demo1" class="T-a"></div>
-    <!-- 遮罩层
-  <div class="opsitio" style="display:none;" id="opsitio"></div> -->
-    <!-- 评价弹窗 -->
-    <div id="visit" class="w_h_500" style="display:none;">
-        <div class="m_t6">
-            <div class="text_r"  id="close">
-               <img src="../image/close.png" alt="" style="width:20px;height:20px;"> 
-                <!-- <i class="layui-icon layui-icon-close" style="font-size: 22px;">&#x1006;</i> -->
-            </div>
-            <!-- 星星 -->
-            <!-- <div class="eval-star">
-                <span class="eval-star_o l_h_30">评分：</span>
-                <input type="hidden" name="star">
-            </div> -->
-            <!-- <form name="form" method="post" action="" class="m_t20 m_b20 T-a"> -->
-            <div class="m_t20 m_auto T-a">
-                <!-- <div class="m_t20 m_b20">
-                    <div class="eval-star_o m_b20">服务人员是否按时上门？</div>
-                    <input type="radio" name="radio" value="按时上门" class="v_a" />&nbsp;&nbsp;按时上门
-                    <input type="radio" name="radio" value="没有按时上门" class="v_a m_l_24" />&nbsp;&nbsp;没有按时上门
-                </div>
-                <div class="m_t20 m_b20">
-                    <div class="eval-star_o m_b20">请问本次服务合计收费
-                        <span>112</span>元吗？
-                    </div>
-                    <input type="radio" name="radio1" value="金额一致" class="v_a" />&nbsp;&nbsp;金额一致
-                    <input type="radio" name="radio1" value="金额不一致" class="v_a m_l_24" />&nbsp;&nbsp;金额不一致
-                    <input type="text" placeholder="填写用户实报金额" class="v_a in_put w_90 m_l5r5 T-a" value="">
-                </div>
-                <div class="m_t20 m_b20">
-                    <div class="eval-star_o m_b20">对本次服务是否满意？</div>
-                    <input type="radio" name="radio" value="满意" class="v_a" />&nbsp;&nbsp;满意
-                    <input type="radio" name="radio" value="不满意" class="v_a m_l_24" />&nbsp;&nbsp;不满意
-                </div> -->
-                <div class="w_290 m_auto over_y" id="textarea_one"></div>
-                <div>
-                <div class="m_b30">
-                    <div class="overflow_h m_b6">
-                        <div class="f_l m_l22 color_FB">用户号码：<span id="user_phone"></span></div>
-                        <div class="f_l m_l22 color_FB cur_p" id='copy_phone'>复制按钮</div>
-                    </div>
-                 <textarea name="desc" placeholder="" class="w_290 h_100" id="textarea"  style="display:none;margin: auto;"></textarea>
-                </div>
-                <button class="layui-btn" class="sbmit" id="sbmit_two" style="display:none;width: 64px;margin: auto;">提交</button>
-                </div>
-         
-                <!-- </form> -->
-            </div>
+    <div style="padding: 0 10px; margin-top: 10px">
+        <div class="layui-elem-quote">
+            回访信息
+        </div>
+        <div>
+            <div class="a-score a-bRed">评分</div>
+            <div id="star"></div>
+        </div>
+        <div class="a-sm a-bRed mt40">
+            服务人员是否按时上门
+        </div>
+        <div class="radio a-isGo">
+            <label class="p-r a-lb">
+                <input name="feel" class="feel feelAll" index="1" type="radio" value="love" checked/>
+                <span class="pos">
+            <span class="radio_bg">
+                <span class="radio_on"></span>
+            </span>
+            </span>
+                <span class="p-a a-text fs14">按时上门</span>
+            </label>
+            <label class="p-r a-lb">
+                <input name="feel" class="feel feelAll" index="2" type="radio" value="hate"/>
+                <span class="pos">
+            <span class="radio_bg">
+                <span class="radio_on"></span>
+            </span>
+        </span>
+                <span class="p-a a-text fs14">没有按时上门</span>
+            </label>
+        </div>
+        <!--//收费-->
+        <div class="a-sm a-bRed mt40" id="a-price">
+            本次服务合计收费¥256.00元吗?
+        </div>
+        <div class="radio a-isGo">
+            <label class="p-r a-lb">
+                <input name="feel1" class="feel1 feelAll" index="1" type="radio" value="love" checked/>
+                <span class="pos">
+            <span class="radio_bg">
+                <span class="radio_on"></span>
+            </span>
+            </span>
+                <span class="p-a a-text fs14">金额一致</span>
+            </label>
+            <label class="p-r a-lb">
+                <input name="feel1" class="feel1 feelAll" index="2" type="radio"  value="hate"/>
+                <span class="pos">
+            <span class="radio_bg">
+                <span class="radio_on"></span>
+            </span>
+        </span>
+                <span class="p-a a-text fs14">金额不一致</span>
+            </label>
+            <input id="a-input"  class="a-input None" placeholder="请输入实付金额" onkeyup="clearNoNum(this)" type="text">
+        </div>
+        <!--服务-->
+        <div class="a-sm a-bRed mt40">
+            对本次服务是否满意
+        </div>
+        <div class="radio a-isGo">
+            <label class="p-r a-lb">
+                <input name="feel2" class="feel2 feelAll" index="1" type="radio" value="love" checked/>
+                <span class="pos">
+            <span class="radio_bg">
+                <span class="radio_on"></span>
+            </span>
+            </span>
+                <span class="p-a a-text fs14">满意</span>
+            </label>
+            <label class="p-r a-lb">
+                <input name="feel2" class="feel2 feelAll" index="2" type="radio" value="hate"/>
+                <span class="pos">
+            <span class="radio_bg">
+                <span class="radio_on"></span>
+            </span>
+        </span>
+                <span class="p-a a-text fs14">不满意</span>
+            </label>
+        </div>
+        <div class="a-textarea m_t20 None">
+            <div class="a-t-title">备注</div>
+            <textarea name="textarea" id="a-textarea"  rows="10"></textarea>
+        </div>
+        <div class="a-btn m_t20">
+            <div class="a-btnc a-btnL">保存</div>
+            <div class="a-btnc a-btnR">取消</div>
         </div>
     </div>
-    </div>
-    </div>
-    <!-- 遮罩层 -->
-    <div class="opsitio" style="display:none;" id="opsitio"></div>
+</div>
+</div>
+</div>
+<!-- 遮罩层 -->
+<div class="opsitio" style="display:none;" id="opsitio"></div>
 </body>
 <script src="../lib/jquery-1.9.1.min.js"></script>
 <script src="../lib/layui-1.0.9/build/layui.js" charset="utf-8"></script>
-<script type="text/javascript" src="../lib/jquery.raty.min.js"></script>
+<script type="text/javascript" src="../utils/raty/lib/jquery.raty.min.js"></script>
 <script src="../utils/service.js"></script>
 <script src="../utils/util.js"></script>
 <script>
@@ -195,10 +253,19 @@
         var select = '';//服务城市
         // var page = 1;
         var reVisitId = '';//点击回访得到id
-        var _page='';//dangqianyeshu 
-        var user_phone_num='';//回访里面复制的用户电话号码
+        var _page = '';//dangqianyeshu
+        var user_phone_num = '';//回访里面复制的用户电话号码
         // var scoreStar=''//评论星数
         //显示城市
+        var submitObj={
+            id:'',
+            rate:0,
+            is_on_time:1,
+            is_right_price:1,
+            is_satisfaction:1,
+            price:'',
+            remark:''
+        }
         var data_one = {};
         orderList.cityList(data_one, function (res) {
             var art = '';
@@ -223,14 +290,13 @@
                 server_start_time: shop_startSer,
                 server_end_time: shop_endSer,
                 status: optionTab,
-                mobile:shop_user
+                mobile: shop_user
             }
             orderList.order(dataList, function (res) {
-                console.log(res.data)
                 var str = '';
                 for (var i = 0; i < res.data.list.length; i++) {
                     if (optionTab == 'cancel' || optionTab == 100) {
-                        str = '<button class="layui-btn layui-btn-normal reVisit" id=' + res.data.list[i].feedback+','+res.data.list[i].id+','+res.data.list[i].mobile+ '>回访</button>';
+                        str = '<button class="layui-btn layui-btn-normal reVisit" price='+res.data.list[i].pay_amount+' id=' + res.data.list[i].feedback + ',' + res.data.list[i].id + ',' + res.data.list[i].mobile + '>回访</button>';
                     } else {
                         str = ''
                     }
@@ -240,6 +306,7 @@
                         '<td>' + res.data.list[i].store_name + '</td>' +
                         '<td>' + res.data.list[i].service_category_name + '</td>' +
                         '<td>' + res.data.list[i].status_text + '</td>' +
+                        '<td>' + res.data.list[i].order_maker + '</td>' +
                         '<td>' + res.data.list[i].full_address + '</td>' +
                         '<td>' + res.data.list[i].amount + '</td>' +
                         '<td>' + res.data.list[i].remark + '</td>' +
@@ -248,25 +315,28 @@
                         str +
                         '</td>' +
                         '</tr>'
-                };
+                }
+                ;
                 $('#tbody').html(list);
-             
+
                 //点击回访
                 $('.reVisit').on('click', (function (e) {
-                    $('#textarea').val('');
-                   var _target=e.target.id.split(',');
+
+                    var _target = e.target.id.split(',');
+                   var price= $(this).attr('price')
+                    submitObj.id=_target[1]
+                    $('#a-price').text('本次服务合计收费¥'+price+'元吗?')
                     reVisitId = _target[1];
-                    user_phone_num=_target[2]
-                    if(_target[2]){
+                    user_phone_num = _target[2]
+                    if (_target[2]) {
                         $('#user_phone').text(_target[2])
                     }
-                    if(_target[0]){
+                    if (_target[0]) {
                         $('#textarea_one').text(_target[0]);
                         $('#textarea_one').css('display', 'block');
                         $('#textarea').css('display', 'none');
                         $('#sbmit_two').css('display', 'none');
-
-                    }else{
+                    } else {
                         $('#textarea_one').css('display', 'none');
                         $('#textarea').css('display', 'block');
                         $('#sbmit_two').css('display', 'block');
@@ -275,36 +345,38 @@
                     $('#opsitio').css('display', 'block');
                 }))
                 //点击复制
-                $('#copy_phone').on('click',function(){
-                    var ssrsss = user_phone_num;//获取文本
-                    var flag = copyText(ssrsss); //传递文本
-                    flag ? layer.msg('复制成功') :  layer.msg('复制失败') ;
-                })
-                function copyText(text) {
-                var textarea = document.createElement("input");//创建input对象
-                var currentFocus = document.activeElement;//当前获得焦点的元素
-                document.body.appendChild(textarea);//添加元素
-                textarea.value = text;
-                textarea.focus();
-                if(textarea.setSelectionRange)
-                    textarea.setSelectionRange(0, textarea.value.length);//获取光标起始位置到结束位置
-                else
-                    textarea.select();
-                try {
-                    var flag = document.execCommand("copy");//执行复制
-                } catch(eo) {
-                    var flag = false;
-                }
-                document.body.removeChild(textarea);//删除元素
-                currentFocus.focus();
-                return flag;
-    }
+                // $('#copy_phone').on('click', function () {
+                //     var ssrsss = user_phone_num;//获取文本
+                //     var flag = copyText(ssrsss); //传递文本
+                //     flag ? layer.msg('复制成功') : layer.msg('复制失败');
+                // })
+
+                // function copyText(text) {
+                //     var textarea = document.createElement("input");//创建input对象
+                //     var currentFocus = document.activeElement;//当前获得焦点的元素
+                //     document.body.appendChild(textarea);//添加元素
+                //     textarea.value = text;
+                //     textarea.focus();
+                //     if (textarea.setSelectionRange)
+                //         textarea.setSelectionRange(0, textarea.value.length);//获取光标起始位置到结束位置
+                //     else
+                //         textarea.select();
+                //     try {
+                //         var flag = document.execCommand("copy");//执行复制
+                //     } catch (eo) {
+                //         var flag = false;
+                //     }
+                //     document.body.removeChild(textarea);//删除元素
+                //     currentFocus.focus();
+                //     return flag;
+                // }
+
                 //点击详情
-                $('.details').on('click', (function (e) { 
+                $('.details').on('click', (function (e) {
                     $(location).attr('href', 'OrderDetails.html?id=' + e.target.id)
                 }))
-                      //分页
-                      layui.use(['laypage', 'layer'], function () {
+                //分页
+                layui.use(['laypage', 'layer'], function () {
                     var laypage = layui.laypage
                         , layer = layui.layer;
                     laypage({
@@ -312,7 +384,7 @@
                         pages: res.data.totalPage || 0, //数据总数
                         curr: page || 1,
                         jump: function (obj, first) {
-                            _page=obj.curr;
+                            _page = obj.curr;
                             if (!first) {
                                 orderLists(obj.curr);
                             }
@@ -353,7 +425,6 @@
                 'border': '1px solid #1AA194'
             })
         })
-
         //日期选择
         layui.use('laydate', function () {
             var laydate = layui.laydate;
@@ -403,44 +474,204 @@
             select = $("#select").val();//服务城市
             orderLists(1);
         });
-
         //点击回访关闭
-        $('#close').click(function () {
+        function close(){
             $('#visit').css('display', 'none');
             $('#opsitio').css('display', 'none');
+            $('.feelAll').each(function () {
+                if( $(this).attr('index')==1){
+                    $(this).prop('checked',true)
+                    $('.a-input').addClass('None')
+                    $('.a-input').val('')
+                    $('.a-textarea').addClass('None')
+                    $('#a-textarea').val("")
+                }else {
+                    $(this).prop('checked',false)
+                }
+            })
+            $('#star').raty({
+                score: 0,
+                path: 'img',
+                width: 400
+            });
+            submitObj={
+                rate:0,
+                is_on_time:1,
+                is_right_price:1,
+                is_satisfaction:1,
+                price:'',
+                remark:''
+            }
+        }
+        $('#close').click(function () {
+            close()
         })
-        //评星
-        // $('.eval-star span').raty({
-        //     click: function (score) {
-        //         scoreStar=score
-        //     },
-        //     starOff: '../image/star_b_grray.jpg',
-        //     starOn: '../image/star_b_red.jpg',
-        //     starHalf: '../image/star_b_helf.jpg',
-        //     half: true
-        // });
         //点击弹出框提交按钮
         $('#sbmit_two').click(function () {
             var textVal = $('#textarea').val();
-            if($('#textarea').val()){
-            var _data = {
-                id: reVisitId,
-                content: textVal
-            }
-            orderList.feedback(_data, function (res) {
-                if (res.message == '操作成功') {
-                    layer.msg('内容提交成功~~');
-                    orderLists(_page);
-                } else {
-                    layer.msg('内容提交失败~~');
+            if ($('#textarea').val()) {
+                var _data = {
+                    id: reVisitId,
+                    content: textVal
                 }
-                $('#visit').css('display', 'none');
-                $('#opsitio').css('display', 'none');
-            })
+                orderList.feedback(_data, function (res) {
+                    if (res.message == '操作成功') {
+                        layer.msg('内容提交成功~~');
+                        orderLists(_page);
+                    } else {
+                        layer.msg('内容提交失败~~');
+                    }
+                    $('#visit').css('display', 'none');
+                    $('#opsitio').css('display', 'none');
+                })
+            }
+        })
+        $('#sbmit_out').on('click', function () {
+            method1('myId')
+        })
+        // 导出表格
+        var idTmr;
+        function getExplorer() {
+            var explorer = window.navigator.userAgent;
+            //ie
+            if (explorer.indexOf("MSIE") >= 0) {
+                return 'ie';
+            }
+            //firefox
+            else if (explorer.indexOf("Firefox") >= 0) {
+                return 'Firefox';
+            }
+            //Chrome
+            else if (explorer.indexOf("Chrome") >= 0) {
+                return 'Chrome';
+            }
+            //Opera
+            else if (explorer.indexOf("Opera") >= 0) {
+                return 'Opera';
+            }
+            //Safari
+            else if (explorer.indexOf("Safari") >= 0) {
+                return 'Safari';
+            }
         }
-         })
-       
- 
+        function method1(tableid) {//整个表格拷贝到EXCEL中
+            if (getExplorer() == 'ie') {
+                var curTbl = document.getElementById(tableid);
+                var oXL = new ActiveXObject("Excel.Application");
+                //创建AX对象excel
+                var oWB = oXL.Workbooks.Add();
+                //获取workbook对象
+                var xlsheet = oWB.Worksheets(1);
+                //激活当前sheet
+                var sel = document.body.createTextRange();
+                sel.moveToElementText(curTbl);
+                //把表格中的内容移到TextRange中
+                sel.select;
+                //全选TextRange中内容
+                sel.execCommand("Copy");
+                //复制TextRange中内容
+                xlsheet.Paste();
+                //粘贴到活动的EXCEL中
+                oXL.Visible = true;
+                //设置excel可见属性
+
+                try {
+                    var fname = oXL.Application.GetSaveAsFilename("Excel.xls", "Excel Spreadsheets (*.xls), *.xls");
+                } catch (e) {
+                    print("Nested catch caught " + e);
+                } finally {
+                    oWB.SaveAs(fname);
+
+                    oWB.Close(savechanges = false);
+                    //xls.visible = false;
+                    oXL.Quit();
+                    oXL = null;
+                    //结束excel进程，退出完成
+                    //window.setInterval("Cleanup();",1);
+                    idTmr = window.setInterval("Cleanup();", 1);
+                }
+            } else {
+                tableToExcel('myId')
+            }
+        }
+        function Cleanup() {
+            window.clearInterval(idTmr);
+            CollectGarbage();
+        }
+        var tableToExcel = (function () {
+            var uri = 'data:application/vnd.ms-excel;base64,',
+                template = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>{worksheet}</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>{table}</table></body></html>',
+                base64 = function (s) {
+                    return window.btoa(unescape(encodeURIComponent(s)))
+                },
+                // 下面这段函数作用是：将template中的变量替换为页面内容ctx获取到的值
+                format = function (s, c) {
+                    return s.replace(/{(\w+)}/g,
+                        function (m, p) {
+                            return c[p];
+                        }
+                    )
+                };
+            return function (table, name) {
+                if (!table.nodeType) {
+                    table = document.getElementById(table)
+                }
+                // 获取表单的名字和表单查询的内容
+                var ctx = {worksheet: name || 'Worksheet', table: table.innerHTML};
+                // format()函数：通过格式操作使任意类型的数据转换成一个字符串
+                // base64()：进行编码
+                window.location.href = uri + base64(format(template, ctx))
+            }
+        })()
+        $('.feel').on('change',function () {
+            if( $(this).attr('index')==2){
+                submitObj.is_on_time=0
+            }else {
+                submitObj.is_on_time=1
+            }
+        })
+        $('.feel1').on('change',function () {
+            if( $(this).attr('index')==2){
+                submitObj.is_right_price=0
+
+                $('.a-input').removeClass('None')
+            }else {
+                submitObj.is_right_price=1
+                submitObj.price=''
+                $('.a-input').addClass('None')
+                $('.a-input').val('')
+            }
+        })
+        $('.feel2').on('change',function () {
+            if( $(this).attr('index')==2){
+                submitObj.is_satisfaction=0
+                $('.a-textarea').removeClass('None')
+            }else {
+                submitObj.is_satisfaction=1
+                $('.a-textarea').addClass('None')
+                $('#a-textarea').val("")
+            }
+        })
+        // 星星
+        $('#star').raty({
+            score: 0,
+            path: 'img',
+            width: 400,
+            click: function (score, evt) {
+                submitObj.rate=score
+            }
+        });
+        $('.a-btnR').on('click',function () {
+            close()
+        })
+        // 保存
+        $('.a-btnL').on('click',function () {
+            submitObj.price=$('.a-input').val()
+            submitObj.remark=$('#a-textarea').val()
+            orderList.feedback(submitObj,function (res) {
+                console.log(res)
+            })
+        })
         //设置input,textarea默认值
         // var placeholder = function () {
         //     if (!('placeholder' in document.createElement('input'))) {
@@ -468,7 +699,16 @@
         // };
         // placeholder();
     })
-
+    //只能输入数字和小数点两位数
+    function clearNoNum(obj) {
+        obj.value = obj.value.replace(/[^\d.]/g, "");  //清除“数字”和“.”以外的字符
+        obj.value = obj.value.replace(/\.{2,}/g, "."); //只保留第一个. 清除多余的
+        obj.value = obj.value.replace(".", "$#$").replace(/\./g, "").replace("$#$", ".");
+        obj.value = obj.value.replace(/^(\-)*(\d+)\.(\d\d).*$/, '$1$2.$3');//只能输入两个小数
+        if (obj.value.indexOf(".") < 0 && obj.value != "") {//以上已经过滤，此处控制的是如果没有小数点，首位不能为类似于 01、02的金额
+            obj.value = parseFloat(obj.value);
+        }
+    }
 </script>
 
 </html>
