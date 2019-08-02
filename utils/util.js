@@ -1,6 +1,6 @@
 var conf = {
-  serverHost: 'http://demo.jixinghai.com/xiaobaidaojia/public/index.php',
-  // serverHost: 'http://devdaojiam.qingmh.com',
+  // serverHost: 'http://demo.jixinghai.com/xiaobaidaojia/public/index.php',
+  serverHost: 'http://devdaojiam.qingmh.com',
   // serverHost: 'http://o2o.114yun.net/sysAdmin',
   // serverHost: 'http://o2o.114yun.net/sysAdmindev',
   // serverHost: 'http://devdaojiam.qingmh.com',
