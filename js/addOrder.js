@@ -703,7 +703,7 @@ layui.use(['form','layer','laydate'], function(){
         }else{
           $('#red_w').html('');
         }
-        _hw.syncAddress({mobile_copy:$('#user_mobile').val(),mobile:val},function (res) {
+        _hw.syncAddress({mobile:$('#user_mobile').val(),mobile_copy:val},function (res) {
           // events.infor.address_list = events.infor.address_list.concat(res.data);
           events.infor.address_list = res.data;
           events.ajaxDo.addressSelect(events.infor.address_list);
