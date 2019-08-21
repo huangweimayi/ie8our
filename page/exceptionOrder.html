@@ -145,7 +145,10 @@
             '</td>' +
             '</tr>'
         }
-        $('#tbody').append(list);
+        // $('#tbody').append(list);
+        var div = document.createElement('div')
+        div.innerHTML = '<table>' + list + '</table>'
+        document.getElementById('tbody').parentNode.replaceChild(div.firstChild.firstChild, document.getElementById('tbody'))
         //点击详情
         $('.details').on('click', (function (e) {
           $(location).attr('href', 'OrderDetails.html?id=' + e.target.id)
@@ -215,7 +218,7 @@
     if (!('placeholder' in document.createElement('input'))) {
       $('input[placeholder],textarea[placeholder]').each(function () {
         var that = $(this),
-          text = that.attr('placeholder');            
+          text = that.attr('placeholder');
         if (that.val() === "") {
           that.val(text).addClass('placeholder');
         }
