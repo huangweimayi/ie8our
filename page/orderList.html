@@ -318,12 +318,15 @@
             str +
             '</td>' +
             '</tr>'
-        }
-        ;
+        };
         // $('#tbody').html(list);
         var div = document.createElement('div')
         div.innerHTML = '<table>' + list + '</table>'
-        document.getElementById('tbody').parentNode.replaceChild(div.firstChild.firstChild, document.getElementById('tbody'))
+        if(res.data.list.length>0){
+          document.getElementsByTagName('tbody')[0].parentNode.replaceChild(div.firstChild.firstChild, document.getElementsByTagName('tbody')[0])
+        }else{
+          document.getElementsByTagName('tbody')[0].innerHTML = ''
+        }
 
         //点击回访
         $('.reVisit').on('click', (function (e) {
