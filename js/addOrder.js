@@ -63,10 +63,10 @@ layui.use(['form','layer','laydate'], function(){
       var _top = this;
 
       function callNo() {
-  /*      var num = call_getCallerNo();
+        var num = call_getCallerNo();
         $('#user_mobile').val(num);
         _top.infor.addInfo.user_mobile = num;
-        _top.ajaxDo.userInfo(num)*/
+        _top.ajaxDo.userInfo(num)
       }
       callNo();
 
