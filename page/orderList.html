@@ -543,7 +543,7 @@
     })
     $('#sbmit_out').on('click', function () {
       var token = sessionStorage.getItem('token')
-      window.location.href = 'http://devdaojiam.qingmh.com/manage114/order?export=' + true + '&token=' + token +'&order_maker='+order_maker+ '&status=' + optionTab + '&store=' + shop_name + '&mobile=' + shop_user + '&start_time=' + shop_start + '&end_time=' + shop_end + '&city=' + select + '&server_start_time=' + shop_startSer + '&server_end_timer=' + shop_endSer
+      window.location.href = 'http://devdaojiam.qingmh.com/manage114/order?export=' + true + '&_token=' + token +'&order_maker='+order_maker+ '&status=' + optionTab + '&store=' + shop_name + '&mobile=' + shop_user + '&start_time=' + shop_start + '&end_time=' + shop_end + '&city=' + select + '&server_start_time=' + shop_startSer + '&server_end_timer=' + shop_endSer
     })
 
     $('.feel').on('change', function () {
