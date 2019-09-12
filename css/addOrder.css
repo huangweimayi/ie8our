@@ -27,7 +27,7 @@
     text-align: left;
     font-size: 14px;
 }
-.re_out input{
+.re_out input,.re_out select{
     outline: none;
     border: 1px solid #cccccc;
     border-radius: 3px;
@@ -44,4 +44,10 @@
     color: red;
     font-size: 12px;
     margin-bottom: 10px;
+}
+.re_out .de_radio{
+    width: 15px;
+    height: 14px;
+    display: inline-block;
+    margin-left: 20px;
 }

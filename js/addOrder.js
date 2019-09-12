@@ -63,7 +63,7 @@ layui.use(['form','layer','laydate'], function(){
       var _top = this;
 
       function callNo() {
-       /* var num = call_getCallerNo();
+        /*var num = call_getCallerNo();
         $('#user_mobile').val(num);
         _top.infor.addInfo.user_mobile = num;
         _top.ajaxDo.userInfo(num)*/
@@ -94,6 +94,10 @@ layui.use(['form','layer','laydate'], function(){
 
       $('#address_detail').on('change',function () {
         _top.infor.addInfo.address_detail = $(this).val()
+      });
+
+      $('.de_radio').on('change',function () {
+        _top.infor.addInfo.is_default = $(this).val()
       });
 
       $('#coupon_code').on('change',function () {
@@ -293,6 +297,10 @@ layui.use(['form','layer','laydate'], function(){
         }
         _top.infor.addInfo.city_id = val;
       }*/
+      $('#city1').on('change',function () {
+        _top.infor.addInfo.city_id = $(this).val().split('_')[0];
+        _top.ajaxDo.mapFun($(this).val().split('_')[1]);
+      })
       form.on('select(city1)', function(data){
         _top.infor.addInfo.city_id = data.value.split('_')[0];
         _top.ajaxDo.mapFun(data.value.split('_')[1]);
@@ -400,6 +408,11 @@ layui.use(['form','layer','laydate'], function(){
       //确定关联
       $('#sureRe').on('click',function () {
         _top.ajaxDo.sccRe($('#sccRe').val());
+      })
+
+      //取消新增地址
+      $('#cancelAddr,#sureAddr').on('click',function () {
+        $('#isHasUser').hide()
       })
     },
     ajaxDo:{

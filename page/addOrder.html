@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>新增订单</title>
-  <!--<object classid=clsid:F1E4D0CA-9188-44A8-8272-B28ACD203C3A id=icdccc width=0 height=0 ></object>-->
-  <!--<object classid=clsid:4A35C037-9252-4C50-801B-247BDF4C2AC5 id=icdevent width=0 height=0 ></object>-->
-  <!--<object classid=clsid:5A66746D-C8D8-4ACD-8E44-A93DAE291670 id=icddm width=0 height=0 ></object>-->
+  <object classid=clsid:F1E4D0CA-9188-44A8-8272-B28ACD203C3A id=icdccc width=0 height=0 ></object>
+  <object classid=clsid:4A35C037-9252-4C50-801B-247BDF4C2AC5 id=icdevent width=0 height=0 ></object>
+  <object classid=clsid:5A66746D-C8D8-4ACD-8E44-A93DAE291670 id=icddm width=0 height=0 ></object>
   <link rel="stylesheet" href="../lib/layui-1.0.9/build/css/layui.css">
   <link rel="stylesheet" href="../css/common.css">
   <link rel="stylesheet" href="../css/addOrder.css">
@@ -78,58 +78,6 @@
       <!--<div class="layui-btn">编辑</div>-->
       <div class="layui-btn" id="addAddr">新增地址</div>
       <div class="layui-btn" id="relationAcc">关联账号</div>
-    </div>
-    <div id="isHasUser" style="display: none">
-      <div class="layui-form-item">
-        <label class="layui-form-label">联系人</label>
-        <div class="layui-input-inline">
-          <input type="text" name="contact_name" id="contact_name" placeholder="请输入联系人" autocomplete="off" class="layui-input">
-        </div>
-      </div>
-      <div class="layui-form-item">
-        <label class="layui-form-label">联系电话</label>
-        <div class="layui-input-inline">
-          <input type="text" name="mobile" id="mobile" placeholder="请输入联系电话" autocomplete="off" class="layui-input">
-        </div>
-      </div>
-      <div class="layui-form-item">
-        <label class="layui-form-label">服务城市</label>
-        <div class="layui-input-inline">
-          <select name="city1" id="city1" lay-filter="city1">
-            <option value=""></option>
-          </select>
-        </div>
-        <!--<div class="layui-input-inline">
-          <select name="city2" id="city2" lay-filter="city2">
-            <option value=""></option>
-          </select>
-        </div>
-        <div class="layui-input-inline">
-          <select name="city3" id="city3" lay-filter="city3">
-            <option value=""></option>
-          </select>
-        </div>-->
-      </div>
-      <!--<div class="layui-form-item">
-        <label class="layui-form-label">详细地址</label>
-        <div class="layui-input-inline">
-          <input type="text" name="address" id="address" placeholder="请输入详细地址" autocomplete="off" class="layui-input">
-        </div>
-      </div>-->
-      <div class="layui-form-item">
-        <label class="layui-form-label">坐标小区</label>
-        <div class="layui-input-inline p_r">
-          <input type="text" name="title" id="suggestId" placeholder="请输入小区名" autocomplete="off" class="layui-input">
-          <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:100%;height:auto; display:none;position: absolute;top: 40px;"></div>
-        </div>
-        <!--<button class="layui-btn">搜索</button>-->
-      </div>
-      <div class="layui-form-item">
-        <label class="layui-form-label">门牌号</label>
-        <div class="layui-input-inline">
-          <input type="text" name="address" id="address_detail" placeholder="请输入门牌号" autocomplete="off" class="layui-input">
-        </div>
-      </div>
     </div>
     <div class="layui-form-item">
       <label class="layui-form-label">*服务时间</label>
@@ -321,9 +269,83 @@
       注：如果用户还通过其他账号下单，则输入其他账号后 以前使用过的地址一起同步
     </div>
     <div class="red_w" id="red_w"></div>
-    <div id= class="t_a">
+    <div class="t_a">
       <div class="layui-btn  layui-btn-primary" id="cancelRe">取消</div>
       <div class="layui-btn" id="sureRe">确定</div>
+    </div>
+  </div>
+
+</div>
+
+<!--关联账号弹窗-->
+<div class="r_out d_n" id="isHasUser">
+  <div class="re_out">
+    <div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">联系人</label>
+        <div class="layui-input-inline">
+          <input type="text" name="contact_name" id="contact_name" placeholder="请输入联系人" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">联系电话</label>
+        <div class="layui-input-inline">
+          <input type="text" name="mobile" id="mobile" placeholder="请输入联系电话" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">服务城市</label>
+        <div class="layui-input-inline">
+          <select name="city1" id="city1" lay-filter="city1">
+            <option value=""></option>
+          </select>
+        </div>
+        <!--<div class="layui-input-inline">
+          <select name="city2" id="city2" lay-filter="city2">
+            <option value=""></option>
+          </select>
+        </div>
+        <div class="layui-input-inline">
+          <select name="city3" id="city3" lay-filter="city3">
+            <option value=""></option>
+          </select>
+        </div>-->
+      </div>
+      <!--<div class="layui-form-item">
+        <label class="layui-form-label">详细地址</label>
+        <div class="layui-input-inline">
+          <input type="text" name="address" id="address" placeholder="请输入详细地址" autocomplete="off" class="layui-input">
+        </div>
+      </div>-->
+      <div class="layui-form-item">
+        <label class="layui-form-label">坐标小区</label>
+        <div class="layui-input-inline p_r">
+          <input type="text" name="title" id="suggestId" placeholder="请输入小区名" autocomplete="off" class="layui-input">
+          <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:100%;height:auto; display:none;position: absolute;top: 40px;"></div>
+        </div>
+        <!--<button class="layui-btn">搜索</button>-->
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">门牌号</label>
+        <div class="layui-input-inline">
+          <input type="text" name="address" id="address_detail" placeholder="请输入门牌号" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+      <div class="layui-form-item">
+        <label class="layui-form-label">是否默认地址</label>
+        <div class="layui-input-inline" style="text-align: left;position: relative;top: 10px;">
+          <label for="yesAddr">
+            <input type="radio" name="is_default" id="yesAddr" value="1" class="de_radio"> 是
+          </label>
+          <label for="noAddr">
+            <input type="radio" name="is_default" id="noAddr" value="2" class="de_radio"> 否
+          </label>
+        </div>
+      </div>
+    </div>
+    <div id= class="t_a">
+      <div class="layui-btn  layui-btn-primary" id="cancelAddr">取消</div>
+      <div class="layui-btn" id="sureAddr">确定</div>
     </div>
   </div>
 
