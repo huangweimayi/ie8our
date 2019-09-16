@@ -104,6 +104,16 @@ var _hw = {
       error: reject
     });
   },
+  // 新增地址
+  sureAddr: function (data, resolve, reject) {
+    _mm.request({
+      url: _mm.getServerUrl('/manage114/order/add-address'),
+      method: 'POST',
+      data: JSON.stringify(data),
+      success: resolve,
+      error: reject
+    });
+  },
   // 新增订单
   addOrder: function (data, resolve, reject) {
     _mm.request({

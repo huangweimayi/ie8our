@@ -30,9 +30,19 @@ layui.use(['form','layer','laydate'], function(){
       totalPage:0,
       currentPage:1,
       servicePrice:'',
-      addInfo:{
+      addrInfo:{
         lat:'',
         lng:'',
+        user_mobile:'',
+        contact_man:'',
+        contact_phone:'',
+        address:'',
+        address_detail:'',
+        city_id:'',
+        is_default:'',
+
+      },
+      addInfo:{
         category_id:'',
         // street_id:'',
         user_mobile:'',
@@ -40,8 +50,6 @@ layui.use(['form','layer','laydate'], function(){
         type:'',
         price:[],
         service_keyword:'',
-        mobile:'',
-        contact_name:'',
         start_time:'',
         end_time:'',
         service_store_id:'',
@@ -50,10 +58,7 @@ layui.use(['form','layer','laydate'], function(){
         remark:'',
         coupon_id:'',
         coupon_code:'',
-        city_id:'',
         address_id:'',
-        address:'',
-        address_detail:'',
       },
       userId:"",
       address_list:[],
@@ -93,11 +98,11 @@ layui.use(['form','layer','laydate'], function(){
       });
 
       $('#address_detail').on('change',function () {
-        _top.infor.addInfo.address_detail = $(this).val()
+        _top.infor.addrInfo.address_detail = $(this).val()
       });
 
       $('.de_radio').on('change',function () {
-        _top.infor.addInfo.is_default = $(this).val()
+        _top.infor.addrInfo.is_default = $(this).val()
       });
 
       $('#coupon_code').on('change',function () {
@@ -248,12 +253,13 @@ layui.use(['form','layer','laydate'], function(){
 
       //联系人
       $('#contact_name').on('change',function () {
-        _top.infor.addInfo.contact_name = $(this).val();
+        _top.infor.addrInfo.contact_man = $(this).val();
       });
 
       //联系电话
       $('#mobile').on('change',function () {
         _top.infor.addInfo.mobile = $(this).val();
+        _top.infor.addrInfo.contact_phone = $(this).val();
       });
 
       //详细地址
@@ -298,13 +304,12 @@ layui.use(['form','layer','laydate'], function(){
         _top.infor.addInfo.city_id = val;
       }*/
       $('#city1').on('change',function () {
-        _top.infor.addInfo.city_id = $(this).val().split('_')[0];
+        _top.infor.addrInfo.city_id = $(this).val().split('_')[0];
         _top.ajaxDo.mapFun($(this).val().split('_')[1]);
       })
       form.on('select(city1)', function(data){
-        _top.infor.addInfo.city_id = data.value.split('_')[0];
+        _top.infor.addrInfo.city_id = data.value.split('_')[0];
         _top.ajaxDo.mapFun(data.value.split('_')[1]);
-        console.log(data)
         // getCity($('#city2'),1,data.value);
         // $('#city3').html('<option value=""></option>');
         // form.render();
@@ -396,7 +401,7 @@ layui.use(['form','layer','laydate'], function(){
         _top.ajaxDo.serviceOne();
       });
 
-       //关联账号
+      //关联账号
       $('#relationAcc').on('click',function () {
         $('#rOut').show()
       });
@@ -408,14 +413,30 @@ layui.use(['form','layer','laydate'], function(){
       //确定关联
       $('#sureRe').on('click',function () {
         _top.ajaxDo.sccRe($('#sccRe').val());
-      })
+      });
 
       //取消新增地址
-      $('#cancelAddr,#sureAddr').on('click',function () {
+      $('#cancelAddr').on('click',function () {
         $('#isHasUser').hide()
+      });
+      //取消新增地址
+      $('#sureAddr').on('click',function () {
+        _top.ajaxDo.sureAddr();
       })
     },
     ajaxDo:{
+      sureAddr:function(){
+        events.infor.addrInfo.user_mobile = $('#user_mobile').val();
+        events.infor.addrInfo.contact_phone = $('#mobile').val();
+        events.infor.addrInfo.address = $('#suggestId').val();
+        _hw.sureAddr(events.infor.addrInfo,function(res){
+          $('#isHasUser').hide();
+          events.ajaxDo.userInfo($('#user_mobile').val())
+
+        },function(err){
+          tipMsg(err.message);
+        });
+      },
       // 百度地图API功能
       mapFun:function(area) {
         function G(id) {
@@ -461,8 +482,8 @@ layui.use(['form','layer','laydate'], function(){
           map.clearOverlays();    //清除地图上所有覆盖物
           function myFun(){
             var pp = local.getResults().getPoi(0).point;    //获取第一个智能搜索的结果
-            events.infor.addInfo.lat = pp.lat;
-            events.infor.addInfo.lng = pp.lng;
+            events.infor.addrInfo.lat = pp.lat;
+            events.infor.addrInfo.lng = pp.lng;
             map.centerAndZoom(pp, 18);
             map.addOverlay(new BMap.Marker(pp));    //添加标注
           }
