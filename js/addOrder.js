@@ -432,7 +432,6 @@ layui.use(['form','layer','laydate'], function(){
         _hw.sureAddr(events.infor.addrInfo,function(res){
           $('#isHasUser').hide();
           events.ajaxDo.userInfo($('#user_mobile').val())
-
         },function(err){
           tipMsg(err.message);
         });

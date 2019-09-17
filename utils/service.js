@@ -104,7 +104,7 @@ var _hw = {
       error: reject
     });
   },
-  // 新增地址
+  // 新增地址s
   sureAddr: function (data, resolve, reject) {
     _mm.request({
       url: _mm.getServerUrl('/manage114/order/add-address'),
