@@ -114,6 +114,16 @@ var _hw = {
       error: reject
     });
   },
+  //商家下拉
+  storeList: function (data, resolve, reject) {
+    _mm.request({
+      url: _mm.getServerUrl('/manage114/order/store-list'),
+      method: 'POST',
+      data: JSON.stringify(data),
+      success: resolve,
+      error: reject
+    });
+  },
   // 新增订单
   addOrder: function (data, resolve, reject) {
     _mm.request({

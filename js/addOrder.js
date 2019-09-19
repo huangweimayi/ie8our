@@ -209,6 +209,7 @@ layui.use(['form','layer','laydate'], function(){
           _top.ajaxDo.categorySelect(dom,num,val);
         }
         _top.infor.addInfo.category_id = val;
+        _top.ajaxDo.storeList();
       }
       form.on('select(category1)', function(data){
         var val = data.value;
@@ -269,6 +270,9 @@ layui.use(['form','layer','laydate'], function(){
 
       //新增地址按钮
       $('#addAddr').on('click',function () {
+        if(!$('#user_mobile').val()){
+          return layer.msg('请输入用户账号')
+        }
         // callNo();
         $('#isHasUser').show();
         _top.ajaxDo.addressSelect(_top.infor.user.address);
@@ -293,35 +297,29 @@ layui.use(['form','layer','laydate'], function(){
         _top.infor.addInfo.address = data.value.split('_')[1];
         _top.infor.addInfo.address_detail = data.value.split('_')[2];
         events.ajaxDo.serviceOne(true);
+        _top.infor.addrInfo = {
+          lat:'',
+          lng:'',
+          user_mobile:'',
+          contact_man:'',
+          contact_phone:'',
+          address:'',
+          address_detail:'',
+          city_id:'',
+          is_default:''
+        };
         $('#isHasUser').hide();
       });
 
       //服务城市change
-      /*function getCity(dom,num,val) {//分类赋值
-        if(num != 3) {
-          _top.ajaxDo.areaList(dom,val,num);
-        }
-        _top.infor.addInfo.city_id = val;
-      }*/
       $('#city1').on('change',function () {
         _top.infor.addrInfo.city_id = $(this).val().split('_')[0];
         _top.ajaxDo.mapFun($(this).val().split('_')[1]);
-      })
+      });
       form.on('select(city1)', function(data){
         _top.infor.addrInfo.city_id = data.value.split('_')[0];
         _top.ajaxDo.mapFun(data.value.split('_')[1]);
-        // getCity($('#city2'),1,data.value);
-        // $('#city3').html('<option value=""></option>');
-        // form.render();
       });
-      /*form.on('select(city2)', function(data){
-        getCity($('#city3'),2,data.value);
-        // _top.ajaxDo.serviceOne(1)
-      });
-      form.on('select(city3)', function(data){
-        getCity($('#city3'),3,data.value);
-        _top.ajaxDo.serviceOne(1)
-      });*/
 
       //改变表格数量
       function changeNum(up){
@@ -400,6 +398,17 @@ layui.use(['form','layer','laydate'], function(){
         e.stopPropagation();
         _top.ajaxDo.serviceOne();
       });
+      //商家下拉
+      $('#storeList').on('change',function (e) {
+        _top.infor.addInfo.service_store_id = $(this).val();
+        e.stopPropagation();
+        _top.ajaxDo.serviceOne(true);
+      });
+      form.on('select(storeList)', function(data){
+        _top.infor.addInfo.service_store_id = data.value;
+        _top.ajaxDo.serviceOne(true);
+      });
+
 
       //关联账号
       $('#relationAcc').on('click',function () {
@@ -495,13 +504,39 @@ layui.use(['form','layer','laydate'], function(){
       //渲染 服务地址下拉框
       addressSelect:function(addr){
         var str = '<option></option>';
-        if(addr){
+        var deObj = null;
+        if(addr.length>0){
           $.each(addr,function (i, v) {
-            str += '<option value="'+v.id+'_'+v.address+'_'+v.address_detail+'">'+v.username+' '+v.tel+' '+v.full_address+'</option>'
+            var strCheck = '';
+            if(v.is_default == 1){
+              deObj = v;
+              strCheck = 'selected'
+            }
+            str += '<option value="'+v.id+'_'+v.address+'_'+v.address_detail+'" '+strCheck+'>'+v.username+' '+v.tel+' '+v.full_address+'</option>'
           });
           $('#street_id').html(str);
           form.render('select');
+          if(deObj){
+            events.infor.addInfo.address_id = deObj.id;
+            events.infor.addInfo.address = deObj.address;
+            events.infor.addInfo.address_detail = deObj.address_detail;
+            events.ajaxDo.serviceOne(true);
+            events.infor.addrInfo = {
+              lat:'',
+              lng:'',
+              user_mobile:'',
+              contact_man:'',
+              contact_phone:'',
+              address:'',
+              address_detail:'',
+              city_id:'',
+              is_default:''
+            };
+            $('#isHasUser').hide();
+          }
         }
+        $('#street_id').html(str);
+        form.render('select');
       },
       //获取用户信息
       userInfo:function(mobile){
@@ -509,14 +544,14 @@ layui.use(['form','layer','laydate'], function(){
           var _data = res.data,
             addr = _data.address_list;
           events.infor.address_list = addr;
+          events.ajaxDo.addressSelect(addr);
           if(res.data.id){
-            events.infor.userId = _data.id
+            events.infor.userId = _data.id;
             events.infor.addressArr = addr;
             events.infor.user = _data;
             $('#mobile').val(_data.mobile);
             events.infor.addInfo.mobile = _data.mobile;
             if(addr&&addr.length>0){
-              events.ajaxDo.addressSelect(addr);
               $('#isHasUser').hide()
             }else{
               $('#isHasUser').show();
@@ -525,8 +560,39 @@ layui.use(['form','layer','laydate'], function(){
           }
         },function(err){
           tipMsg(err.message);
+          $('#mobile').val($('#user_mobile').val());
           $('#isHasUser').show();
+          events.ajaxDo.addressSelect([]);
+          events.infor.addInfo.address_id = '';
+          events.infor.addInfo.address = '';
+          events.infor.addInfo.address_detail = '';
           events.ajaxDo.areaList($('#city1'))
+        });
+      },
+      //获取商家下拉
+      storeList:function(){
+        var send = {
+            address_id:events.infor.addInfo.address_id,
+            category:events.infor.addInfo.category_id
+        };
+        if(!send.address_id){
+          return tipMsg('请选择服务地址')
+        }
+        if(!send.category){
+          return tipMsg('请选择服务分类')
+        }
+        _hw.storeList(send,function(res){
+          var _data = res.data;
+          var str = '<option value=""></option>';
+          if(_data.length>0){
+            $.each(_data,function (i, v) {
+              str += '<option value="'+v.id+'">'+v.name+'</option>'
+            });
+          }
+          $('#storeList').html(str);
+          form.render('select')
+        },function(err){
+          tipMsg(err.message);
         });
       },
       //获取服务分类
@@ -580,6 +646,7 @@ layui.use(['form','layer','laydate'], function(){
           keyword:events.infor.addInfo.service_keyword,
           street_id:events.infor.addInfo.city_id,
           address_id:events.infor.addInfo.address_id,
+          store_id:events.infor.addInfo.service_store_id,
           page:page || 1
         };
         if(data.max_price == 0){
@@ -587,7 +654,7 @@ layui.use(['form','layer','laydate'], function(){
         }
         if(isOne){
           delete data.page;
-          if(!data.city_id) return;
+          // if(!data.city_id) return;
           _hw.serviceOne(data,function(res){
             var _data = res.data.service;
             if(_data.id>-1){
@@ -671,6 +738,9 @@ layui.use(['form','layer','laydate'], function(){
             $('#sku').html(str);
             form.render('select');
             events.infor.addInfo.sku_id = sku[0].id
+          }else{
+            $('#sku').html('<option value=""></option>');
+            form.render('select')
           }
           events.ajaxDo.getCoupon();
         }else{
@@ -703,12 +773,15 @@ layui.use(['form','layer','laydate'], function(){
       areaList:function (dom,pid,num) {
         _hw.areaList({pid:pid},function (res) {
           var data = res.data.list;
-          var str = '<option value=""></option>';
+          var str = '';
+          // var str = '<option value=""></option>';
           $.each(data,function (i,v) {
             str += '<option value="'+v.id+'_'+v.title+'">'+v.title+'</option>'
           });
           dom.html(str);
           form.render('select');
+          events.infor.addrInfo.city_id = data[0].id;
+          events.ajaxDo.mapFun(data[0].title);
           // events.ajaxDo.serviceOne(1);
         },function(errMsg){})
       },

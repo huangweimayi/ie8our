@@ -17,7 +17,7 @@
       <span class="t_r d_i">订单信息</span>
     </div>
     <div class="layui-form-item">
-      <label class="layui-form-label">*用户账号</label>
+      <label class="layui-form-label"><span style="color: red;font-size:16px">*</span><span style="font-size: 16px">用户账号</span></label>
       <div class="layui-input-inline">
         <input type="text" name="user_mobile" id="user_mobile" lay-filter="user_mobile" required  lay-verify="required" placeholder="请输入用户账号" autocomplete="off" class="layui-input">
         <!--<div class="layui-btn  layui-btn-primary" id="getNum">获取号码</div>-->
@@ -80,7 +80,7 @@
       <div class="layui-btn" id="relationAcc">关联账号</div>
     </div>
     <div class="layui-form-item">
-      <label class="layui-form-label">*服务时间</label>
+      <label class="layui-form-label"><span style="color: red;font-size:16px">*</span><span style="font-size: 16px">服务时间</span></label>
       <div class="layui-input-inline">
         <input id="begin_time" class="layui-input">
       </div>
@@ -95,7 +95,7 @@
       <span class="t_r d_i">服务信息</span>
     </div>
     <div class="layui-form-item">
-      <label class="layui-form-label">*服务分类</label>
+      <label class="layui-form-label"><span style="color: red;font-size:16px">*</span><span style="font-size: 16px">服务分类</span></label>
       <div class="layui-input-inline categorySelects1">
         <select name="category1" id="category1" lay-filter="category1" required  lay-verify="required">
           <option value=""></option>
@@ -111,6 +111,15 @@
           <option value=""></option>
         </select>
       </div>
+    </div>
+    <div class="layui-form-item">
+      <label class="layui-form-label">选择商家</label>
+      <div class="layui-input-inline">
+        <select name="storeList" id="storeList" lay-filter="storeList">
+          <option value=""></option>
+        </select>
+      </div>
+
     </div>
     <div class="layui-form-item" id="service_table">
       <label class="layui-form-label"></label>
