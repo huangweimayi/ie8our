@@ -298,7 +298,7 @@
       orderList.order(dataList, function (res) {
         var str = '';
         for (var i = 0; i < res.data.list.length; i++) {
-          if (res.data.list.should_feedback == 1) {
+          if (res.data.list[i].should_feedback == 1) {
             str = '<button class="layui-btn layui-btn-normal reVisit" price=' + res.data.list[i].pay_amount + ' id=' + res.data.list[i].feedback + ',' + res.data.list[i].id + ',' + res.data.list[i].mobile + '>回访</button>';
           } else {
             str = ''
