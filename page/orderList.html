@@ -301,7 +301,7 @@
           if (res.data.list[i].should_feedback == 1 && res.data.list[i].is_feedback == 0) {
             str = '<button class="layui-btn layui-btn-normal reVisit" price=' + res.data.list[i].pay_amount + ' id=' + res.data.list[i].feedback + ',' + res.data.list[i].id + ',' + res.data.list[i].mobile + '>回访</button>';
           } else if (res.data.list[i].is_feedback == 1){
-            str = '<button class="layui-btn layui-btn-normal">已回访</button>'
+            str = '<button class="layui-btn layui-btn-normal reVisit" price=' + res.data.list[i].pay_amount + ' id=' + res.data.list[i].feedback + ',' + res.data.list[i].id + ',' + res.data.list[i].mobile + '>查看回访</button>';
           }else{
             str = ''
           }
