@@ -505,7 +505,7 @@ layui.use(['form','layer','laydate'], function(){
       addressSelect:function(addr){
         var str = '<option></option>';
         var deObj = null;
-        if(addr.length>0){
+        if(addr && addr.length>0){
           $.each(addr,function (i, v) {
             var strCheck = '';
             if(v.is_default == 1){
