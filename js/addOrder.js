@@ -554,14 +554,14 @@ layui.use(['form','layer','laydate'], function(){
             if(addr&&addr.length>0){
               $('#isHasUser').hide()
             }else{
-              $('#isHasUser').show();
+              // $('#isHasUser').show();
               events.ajaxDo.areaList($('#city1'))
             }
           }
         },function(err){
           tipMsg(err.message);
           $('#mobile').val($('#user_mobile').val());
-          $('#isHasUser').show();
+          // $('#isHasUser').show();
           events.ajaxDo.addressSelect([]);
           events.infor.addInfo.address_id = '';
           events.infor.addInfo.address = '';
