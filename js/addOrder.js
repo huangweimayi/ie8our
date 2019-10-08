@@ -39,7 +39,7 @@ layui.use(['form','layer','laydate'], function(){
         address:'',
         address_detail:'',
         city_id:'',
-        is_default:'',
+        is_default:'1',
 
       },
       addInfo:{
@@ -306,7 +306,7 @@ layui.use(['form','layer','laydate'], function(){
           address:'',
           address_detail:'',
           city_id:'',
-          is_default:''
+          is_default:'1'
         };
         $('#isHasUser').hide();
       });
@@ -530,7 +530,7 @@ layui.use(['form','layer','laydate'], function(){
               address:'',
               address_detail:'',
               city_id:'',
-              is_default:''
+              is_default:'1'
             };
             $('#isHasUser').hide();
           }

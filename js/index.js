@@ -11,7 +11,7 @@ var events = {
     //菜单事件
     $('#order').on('click',function () {
       var _t = $(this);
-      _t.find('.sub_menu').fadeToggle()
+      // _t.find('.sub_menu').fadeToggle()
     });
     //iframe路径赋值
     $('.sub_menu').on('click','li',function (e) {
