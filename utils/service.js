@@ -153,6 +153,15 @@ var _hw = {
       error   : reject
     });
   },
+  //获取地址自动填充
+  autoComplete: function (data, resolve, reject) {
+    _mm.request({
+      url: _mm.getServerUrl('/manage114/map/autoComplete?' + _mm.setUrlParam(data)),
+      method: 'GET',
+      success: resolve,
+      error: reject
+    });
+  },
 
 };
 var orderList = {

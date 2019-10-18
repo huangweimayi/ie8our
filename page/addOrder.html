@@ -23,42 +23,42 @@
         <!--<div class="layui-btn  layui-btn-primary" id="getNum">获取号码</div>-->
       </div>
     </div>
-<!--    <div class="layui-form-item">
-      <label class="layui-form-label">服务内容</label>
-      <div class="layui-input-block">
-        <input type="text" name="service_keyword" id="service_keyword" placeholder="请输入服务内容" autocomplete="off" class="layui-input">
-      </div>
-    </div>
-    <div class="layui-form-item">
-      <label class="layui-form-label">接受价格</label>
-      <div class="layui-input-inline">
-        <select name="price" lay-filter="price">
-          <option value=""></option>
-          <option value="0">0-30元</option>
-          <option value="1">30-50元</option>
-          <option value="2">50-100元</option>
-          <option value="3">100-150元</option>
-          <option value="4">150-300元</option>
-          <option value="5">300元以上</option>
-        </select>
-      </div>
-    </div>
-    &lt;!&ndash;<div class="layui-form-item">
-      <label class="layui-form-label">标签选择</label>
-      <div class="layui-input-block">
-        <input type="checkbox" name="like[write]" title="迟到必赔">
-        <input type="checkbox" name="like[read]" title="不满意退款" checked>
-        <input type="checkbox" name="like[dai]" title="精品">
-      </div>
-    </div>&ndash;&gt;
-    <div class="layui-form-item">
-      <label class="layui-form-label">类型</label>
-      <div class="layui-input-inline">
-        <select name="type" lay-filter="type" id="type">
-          <option value=""></option>
-        </select>
-      </div>
-    </div>-->
+    <!--    <div class="layui-form-item">
+          <label class="layui-form-label">服务内容</label>
+          <div class="layui-input-block">
+            <input type="text" name="service_keyword" id="service_keyword" placeholder="请输入服务内容" autocomplete="off" class="layui-input">
+          </div>
+        </div>
+        <div class="layui-form-item">
+          <label class="layui-form-label">接受价格</label>
+          <div class="layui-input-inline">
+            <select name="price" lay-filter="price">
+              <option value=""></option>
+              <option value="0">0-30元</option>
+              <option value="1">30-50元</option>
+              <option value="2">50-100元</option>
+              <option value="3">100-150元</option>
+              <option value="4">150-300元</option>
+              <option value="5">300元以上</option>
+            </select>
+          </div>
+        </div>
+        &lt;!&ndash;<div class="layui-form-item">
+          <label class="layui-form-label">标签选择</label>
+          <div class="layui-input-block">
+            <input type="checkbox" name="like[write]" title="迟到必赔">
+            <input type="checkbox" name="like[read]" title="不满意退款" checked>
+            <input type="checkbox" name="like[dai]" title="精品">
+          </div>
+        </div>&ndash;&gt;
+        <div class="layui-form-item">
+          <label class="layui-form-label">类型</label>
+          <div class="layui-input-inline">
+            <select name="type" lay-filter="type" id="type">
+              <option value=""></option>
+            </select>
+          </div>
+        </div>-->
     <div class="layui-form-item layui-form-text">
       <label class="layui-form-label">用户备注</label>
       <div class="layui-input-block">
@@ -330,7 +330,18 @@
         <label class="layui-form-label">坐标小区</label>
         <div class="layui-input-inline p_r">
           <input type="text" name="title" id="suggestId" placeholder="请输入小区名" autocomplete="off" class="layui-input">
-          <div id="searchResultPanel" style="border:1px solid #C0C0C0;width:100%;height:auto; display:none;position: absolute;top: 40px;"></div>
+          <div id="searchResultPanel" style="
+             border: 1px solid rgb(192, 192, 192);
+    width: 343px;
+    height: 300px;
+    display: none;
+    position: absolute;
+    top: 40px;
+    background: white;
+    z-index: 1;
+    text-align: left;
+    padding-left: 5px;
+    overflow: auto;"></div>
         </div>
         <!--<button class="layui-btn">搜索</button>-->
       </div>
@@ -362,9 +373,9 @@
 </body>
 <script src="../lib/jquery-1.9.1.min.js"></script>
 <script src="../lib/layui-1.0.9/build/layui.js"></script>
-<script language="vbscript" src="../lib/InterfaceService.vbs"></script>
-<script language="JavaScript" src="../lib/interfaceService.js"></script>
-<script src="https://api.map.baidu.com/api?v=2.0&ak=tNWXrXQyTcAtAWvhVUL4ORBmf5aQ4Rba&s=1"></script>
+<!--<script language="vbscript" src="../lib/InterfaceService.vbs"></script>-->
+<!--<script language="JavaScript" src="../lib/interfaceService.js"></script>-->
+<!--<script src="https://api.map.baidu.com/api?v=2.0&ak=tNWXrXQyTcAtAWvhVUL4ORBmf5aQ4Rba&s=1"></script>-->
 <script src="../utils/util.js"></script>
 <script src="../utils/service.js"></script>
 <script src="../js/addOrder.js"></script>

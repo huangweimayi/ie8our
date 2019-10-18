@@ -58,10 +58,11 @@ layui.use(['form','layer','laydate'], function(){
         remark:'',
         coupon_id:'',
         coupon_code:'',
-        address_id:'',
+        address_id:''
       },
       userId:"",
       address_list:[],
+      autoMapData:[]
 
     },
     domEvent:function () {
@@ -314,11 +315,11 @@ layui.use(['form','layer','laydate'], function(){
       //服务城市change
       $('#city1').on('change',function () {
         _top.infor.addrInfo.city_id = $(this).val().split('_')[0];
-        _top.ajaxDo.mapFun($(this).val().split('_')[1]);
+        // _top.ajaxDo.mapFun($(this).val().split('_')[1]);
       });
       form.on('select(city1)', function(data){
         _top.infor.addrInfo.city_id = data.value.split('_')[0];
-        _top.ajaxDo.mapFun(data.value.split('_')[1]);
+        // _top.ajaxDo.mapFun(data.value.split('_')[1]);
       });
 
       //改变表格数量
@@ -431,6 +432,17 @@ layui.use(['form','layer','laydate'], function(){
       //取消新增地址
       $('#sureAddr').on('click',function () {
         _top.ajaxDo.sureAddr();
+      });
+      //点击自动填充地址
+      $('body').on('click','.chooseAutoAddress',function () {
+        var data = _top.infor.autoMapData[$(this).attr('data-index')];
+        _top.infor.addrInfo.lat = data.location.lat;
+        _top.infor.addrInfo.lng = data.location.lng;
+        $('#suggestId').val(data.address);
+        $('#searchResultPanel').hide();
+      });
+      $('#suggestId').on('keyup',function () {
+        _top.ajaxDo.getMapArr($('#city1').val().split('_')[1],$(this).val())
       })
     },
     ajaxDo:{
@@ -445,7 +457,24 @@ layui.use(['form','layer','laydate'], function(){
           tipMsg(err.message);
         });
       },
+      getMapArr:function(city,address){
+        _hw.autoComplete({city:city,address:address},function (res) {
+          if(res.status == 1){
+            var data = res.data;
+            events.infor.autoMapData = data;
+            var str = '';
+            if(data.length>0){
+              for(var i = 0;i<data.length;i++){
+                str += '<div class="chooseAutoAddress" style="line-height: 30px;cursor: pointer" data-index="'+i+'">'+data[i].address+'</div>'
+              }
+              $('#searchResultPanel').show().empty().html(str)
+            }
+          }
+
+        })
+      },
       // 百度地图API功能
+/*
       mapFun:function(area) {
         function G(id) {
           return document.getElementById(id);
@@ -501,6 +530,7 @@ layui.use(['form','layer','laydate'], function(){
           local.search(myValue);
         }
       },
+*/
       //渲染 服务地址下拉框
       addressSelect:function(addr){
         var str = '<option></option>';
@@ -781,7 +811,7 @@ layui.use(['form','layer','laydate'], function(){
           dom.html(str);
           form.render('select');
           events.infor.addrInfo.city_id = data[0].id;
-          events.ajaxDo.mapFun(data[0].title);
+          // events.ajaxDo.mapFun(data[0].title);
           // events.ajaxDo.serviceOne(1);
         },function(errMsg){})
       },
