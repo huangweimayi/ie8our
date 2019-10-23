@@ -46,7 +46,7 @@ layui.use('flow', function(){
     //,end: '没了'
     ,isLazyimg: true
     ,done: function(page, next){ //加载下一页
-      console.log(page)
+      // console.log(page)
       setTimeout(function(){
         var lis = [];
         for(var i = 0; i < 6; i++){
@@ -56,13 +56,13 @@ layui.use('flow', function(){
       }, 500);
     }
   });
-  
+
   //按屏加载图片
   flow.lazyimg({
     elem: '.demo img'
     ,scrollElem: '.demo'
   });
-  
+
 });
 </script>
 

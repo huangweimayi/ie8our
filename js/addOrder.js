@@ -474,6 +474,7 @@ layui.use(['form','layer','laydate'], function(){
         })
       },
       // 百度地图API功能
+
 /*
       mapFun:function(area) {
         function G(id) {
