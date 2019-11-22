@@ -64,6 +64,15 @@
                 </div>
             </div>
         </div>
+        <div class="f_l">
+            <div class="layui-form-item f_l">
+                <label class="layui-form-label">服务名称：</label>
+                <div class="layui-input-block">
+                    <input type="text" name="title" required lay-verify="required" placeholder="请输入服务名称"
+                           autocomplete="off" class="shop_input layui-input service_name">
+                </div>
+            </div>
+        </div>
 
 
         <div class="overflow_h m_b20 m_t20">
@@ -252,7 +261,8 @@
     var shop_end = '';//下单时间结束
     var shop_endSer = '';//服务时间结束
     var select = '';//服务城市
-    var order_maker=''
+    var order_maker='';
+    var service_name='';
     // var page = 1;
     var reVisitId = '';//点击回访得到id
     var _page = '';//dangqianyeshu
@@ -293,7 +303,8 @@
         server_end_time: shop_endSer,
         status: optionTab,
         mobile: shop_user,
-        order_maker:order_maker
+        order_maker:order_maker,
+        service_name:service_name
       }
       orderList.order(dataList, function (res) {
         var str = '';
@@ -426,6 +437,7 @@
       $('#end_ser').val('');
       $("#select").val('');
       $(".zhanghao").val('');
+      $(".service_name").val('');
       // placeholder();
       orderLists(1);
       $('.w_100').css({
@@ -487,6 +499,7 @@
       shop_endSer = $('#end_ser').val();//服务时间结束
       select = $("#select").val();//服务城市
       order_maker=$(".zhanghao").val();
+      service_name=$(".service_name").val();
       orderLists(1);
     });
 
